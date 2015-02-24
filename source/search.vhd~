@@ -24,46 +24,9 @@ ENTITY locator IS
 END ENTITY locator;
 
 ARCHITECTURE synth_locator OF locator IS
-  TYPE StateType(idle, s0, s1, done);
-  SIGNAL state, nstate : StateType;
-
   SIGNAL top_node_size : std_logic_vector(31 DOWNTO 0);
 BEGIN
 
-  p0 : PROCESS(state, start)
-  BEGIN
-    
-    nstate <= idle;
-    CASE state IS
-      WHEN idle =>
-        nstate <= idle;
-        IF start = '1' THEN
-          nstate <= s0;
-        END IF;
-        
-      WHEN s0   => nstate <= s1;
-      WHEN s1   => nstate <= done;
-      WHEN done => nstate <= idle;
-    END CASE;
-
-  END PROCESS;
-
-  p1 : PROCESS
-  BEGIN
-    WAIT UNTIL clk'event AND clk = '1';
-    IF reset = '0' THEN                 -- active low
-      state <= idle;
-    ELSE
-      state <= nstate;
-
-      IF state = idle THEN
-        -- 
-        top_node_size <= total_mem_blocks
-        row_base <= row_base_i;
-      END IF;
-      
-    END IF;
-  END PROCESS;
 END ARCHITECTURE;
 
 
