@@ -140,27 +140,27 @@ BEGIN
     ram0_we       <= malloc0_we;
     ram0_addr     <= malloc0_addr;
     ram0_data_in  <= malloc0_data_in;
-    ram0_data_out <= malloc0_data_out;
+    malloc0 <= ram0_data_out;
 
     IF state = search THEN
       ram0_we       <= search0_we;
       ram0_addr     <= search0_addr;
       ram0_data_in  <= search0_data_in;
-      ram0_data_out <= search0_data_out;
+      search0_data_out <= ram0_data_out;
     END IF;
 
     IF state = down THEN
       ram0_we       <= down0_we;
       ram0_addr     <= down0_addr;
       ram0_data_in  <= down0_data_in;
-      ram0_data_out <= down0_data_out;
+      down0_data_out <= ram0_data_out;
     END IF;
 
     IF state = up THEN
       ram0_we       <= up0_we;
       ram0_addr     <= up0_addr;
       ram0_data_in  <= up0_data_in;
-      ram0_data_out <= up0_data_out;
+      up0_data_out <= ram0_data_out;
     END IF;
     
   END PROCESS;
