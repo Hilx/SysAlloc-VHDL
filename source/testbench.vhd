@@ -1,0 +1,15 @@
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+USE IEEE.numeric_std.ALL;
+USE work.ALL;
+
+ENTITY tb IS
+END ENTITY tb;
+
+ARCHITECTURE behav OF tb IS
+
+BEGIN
+
+  
+
+END ARCHITECTURE;

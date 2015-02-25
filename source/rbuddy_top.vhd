@@ -18,7 +18,7 @@ ENTITY rbuddy_top IS
     done        : OUT std_logic;
     malloc_addr : OUT std_logic_vector(31 DOWNTO 0)
     );
-END ENTITY buddy;
+END ENTITY rbuddy_top;
 
 ARCHITECTURE synth OF rbuddy_top IS
   TYPE StateType IS (idle,
@@ -28,7 +28,7 @@ ARCHITECTURE synth OF rbuddy_top IS
                      track,             -- update tracker
                      downmark,          -- downward marking
                      upmark,            -- upward marking
-                     done);
+                     done_state);
   SIGNAL state, nstate : StateType;
 
   -- ram0
@@ -43,14 +43,14 @@ ARCHITECTURE synth OF rbuddy_top IS
   SIGNAL malloc0_data_in  : std_logic_vector(31 DOWNTO 0);
   SIGNAL malloc0_data_out : std_logic_vector(31 DOWNTO 0);
 
-  SIGNAL search0_we       : std_logic;
+  -- SIGNAL search0_we       : std_logic; -- doesn't need
   SIGNAL search0_addr     : std_logic_vector(31 DOWNTO 0);
-  SIGNAL search0_data_in  : std_logic_vector(31 DOWNTO 0);
+  -- SIGNAL search0_data_in  : std_logic_vector(31 DOWNTO 0); doesn't need
   SIGNAL search0_data_out : std_logic_vector(31 DOWNTO 0);
 
   SIGNAL down0_we       : std_logic;
   SIGNAL down0_addr     : std_logic_vector(31 DOWNTO 0);
-  SIGNAL donw0_data_in  : std_logic_vector(31 DOWNTO 0);
+  SIGNAL down0_data_in  : std_logic_vector(31 DOWNTO 0);
   SIGNAL down0_data_out : std_logic_vector(31 DOWNTO 0);
 
   SIGNAL up0_we       : std_logic;
@@ -68,6 +68,29 @@ BEGIN
       data_in  => ram0_data_in,
       data_out => ram0_data_out
       );
+  LOCATOR0 : ENTITY locator
+
+    PORT map(
+      clk => clk,
+      reset => reset,
+      start => start,
+      -- inputs
+     alvec_in => alvec,
+     size_in => size,
+     verti_in => verti,
+     horiz_in => horiz,
+     nodesel_in => nodesel,
+     saddr_in => saddr,
+     row_base_in => row_base,
+     direction_in => direction,
+     total_mem_blocks => total_mem_blocks,
+     log2total_mem_blocks => log2total_mem_blocks,
+	 ALVEC_SHIFT => ALVEC_SHIFT,
+      -- outputs
+	 verti_out =>
+
+      );
+
 
   P0 : PROCESS(state, start, cmd)       -- controls FSM, only writes nstate!
 
@@ -110,7 +133,7 @@ BEGIN
       nstate <= upmark;
     END IF;
 
-    IF state = done THEN
+    IF state = done_state THEN
       nstate <= idle;                   -- done -> idle
     END IF;
     
@@ -122,44 +145,44 @@ BEGIN
     WAIT UNTIL clk'event AND clk = '1';
 
     IF reset = '0' THEN                 -- active low
-      state = idle;
+      state <= idle;
     ELSE
-      state = nstate;                   -- default
+      state <= nstate;                  -- default
     END IF;
     
   END PROCESS;
 
   p2 : PROCESS(state,
                malloc0_we, malloc0_addr, malloc0_data_in, malloc0_data_out,
-               search0_we, search0_addr, search0_data_in, search0_data_out,
-               down0_we, down0_addr, donw0_data_in, down0_data_out,
+               search0_addr, search0_data_out,
+               down0_we, down0_addr, down0_data_in, down0_data_out,
                up0_we, up0_addr, up0_data_in, up0_data_out)  -- select ram signals
   BEGIN
 
     -- state = malloc (default)
-    ram0_we       <= malloc0_we;
-    ram0_addr     <= malloc0_addr;
-    ram0_data_in  <= malloc0_data_in;
-    malloc0 <= ram0_data_out;
+    ram0_we          <= malloc0_we;
+    ram0_addr        <= malloc0_addr;
+    ram0_data_in     <= malloc0_data_in;
+    malloc0_data_out <= ram0_data_out;
 
     IF state = search THEN
-      ram0_we       <= search0_we;
-      ram0_addr     <= search0_addr;
-      ram0_data_in  <= search0_data_in;
+      --    ram0_we       <= search0_we; --doesn't need
+      ram0_addr        <= search0_addr;
+      --    ram0_data_in  <= search0_data_in; --doesn't need
       search0_data_out <= ram0_data_out;
     END IF;
 
-    IF state = down THEN
-      ram0_we       <= down0_we;
-      ram0_addr     <= down0_addr;
-      ram0_data_in  <= down0_data_in;
+    IF state = downmark THEN
+      ram0_we        <= down0_we;
+      ram0_addr      <= down0_addr;
+      ram0_data_in   <= down0_data_in;
       down0_data_out <= ram0_data_out;
     END IF;
 
-    IF state = up THEN
-      ram0_we       <= up0_we;
-      ram0_addr     <= up0_addr;
-      ram0_data_in  <= up0_data_in;
+    IF state = upmark THEN
+      ram0_we      <= up0_we;
+      ram0_addr    <= up0_addr;
+      ram0_data_in <= up0_data_in;
       up0_data_out <= ram0_data_out;
     END IF;
     

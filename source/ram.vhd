@@ -16,7 +16,7 @@ ARCHITECTURE ram0 OF ram IS
   TYPE memory IS ARRAY(0 TO 255) OF std_logic_vector(31 DOWNTO 0);
   SIGNAL myram                     : memory;
   ATTRIBUTE ram_init_file          : string;
-  ATTRIBUTE ram_init_file OF myram : SIGNAL IS "ram_contents.mif";
+  ATTRIBUTE ram_init_file OF myram : SIGNAL IS "ram_data.hex";
 BEGIN
   PROCESS(clk)
   BEGIN
