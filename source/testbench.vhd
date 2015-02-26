@@ -49,16 +49,10 @@ BEGIN
 
     IF CtrCounter = 2 THEN
       start   <= '1';
-      size    <= std_logic_vector(to_unsigned(3, size'length));
+      size    <= std_logic_vector(to_unsigned(2, size'length));
       command <= '0';
     END IF;
 
-
- --   IF CtrCounter = 10 THEN
- --     start   <= '1';
- --     size    <= std_logic_vector(to_unsigned(10, size'length));
- --     command <= '0';
- --   END IF;
 
 
 

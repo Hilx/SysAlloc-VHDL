@@ -80,7 +80,7 @@ BEGIN
       reset        => reset,
       start        => start_search,
       probe_in     => search_start_probe,
-      size_in      => size,
+      size      => size,
       direction_in => '0',              -- start direction is always DOWN
       probe_out    => search_done_probe,
       done_bit     => search_done_bit,
@@ -195,6 +195,8 @@ BEGIN
     END IF;
     
   END PROCESS;
+  
+  malloc_addr <= search_done_probe.saddr;
 
 END ARCHITECTURE synth;
 
