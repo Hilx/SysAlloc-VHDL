@@ -49,7 +49,7 @@ BEGIN
 
     IF CtrCounter = 2 THEN
       start   <= '1';
-      size    <= std_logic_vector(to_unsigned(1, size'length));
+      size    <= std_logic_vector(to_unsigned(4, size'length));
       command <= '0';
     END IF;
 
