@@ -1,0 +1,1932 @@
+# Reading C:/altera/14.1/modelsim_ase/tcl/vsim/pref.tcl
+# OpenFile C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/rbuddy_project.mpf
+# Loading project rbuddy_project
+# Compile of rbuddy_top.vhd was successful.
+# Compile of testbench.vhd was successful.
+vsim -gui work.tb
+# vsim -gui C:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\rbuddy_project.mpf 
+# Start time: 09:08:14 on Feb 26,2015
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.budpack
+# Loading work.tb(behav)
+# Loading work.rbuddy_top(synth)
+# Loading work.ram(ram0)
+# Loading work.locator(synth_locator)
+# ** Warning: (vsim-8683) Uninitialized out port /tb/Buddy_Allocator/malloc_addr(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+do mem.do
+mem load -filltype value -filldata 0 -fillradix symbolic -skip 0 /tb/Buddy_Allocator/RAM0/myram
+write format memory mem.do
+do mem.do
+do wave.do
+run 1000ns
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/RAM0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+run 1000ns
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 1050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 1050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 1450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 1450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 1850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 1850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# Compile of search.vhd was successful.
+# Compile of testbench.vhd was successful.
+run 1000ns
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 2250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 2250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 2650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 2650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+run 1000ns
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 3050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 3050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 3250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 3250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 3250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 3250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 3250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 3250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 3450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 3450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 3650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 3650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 3650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 3650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 3650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 3650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 3850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 3850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+restart
+# Loading work.tb(behav)
+# Loading work.locator(synth_locator)
+# ** Warning: (vsim-8683) Uninitialized out port /tb/Buddy_Allocator/malloc_addr(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+do mem.do
+run 1000ns
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/RAM0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+run 1000ns
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 1050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 1050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 1450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 1450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 1850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 1850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+restart
+# ** Warning: (vsim-8683) Uninitialized out port /tb/Buddy_Allocator/malloc_addr(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+do mem.do
+mem load -filltype value -filldata 0 -fillradix symbolic -skip 0 /tb/Buddy_Allocator/RAM0/myram
+run 2500ns
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/RAM0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 1050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 1050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 1450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 1450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 1850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 1850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 2250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 2250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# Compile of search.vhd was successful.
+restart
+# Loading work.locator(synth_locator)
+# ** Warning: (vsim-8683) Uninitialized out port /tb/Buddy_Allocator/malloc_addr(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+do mem.do
+mem load -filltype value -filldata 0 -fillradix symbolic -skip 0 /tb/Buddy_Allocator/RAM0/myram
+run 2500ns
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/RAM0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Fatal: (vsim-3734) Index value 10000 is out of range 0 to 255.
+#    Time: 1050 ns  Iteration: 4  Process: /tb/Buddy_Allocator/RAM0/line__29 File: C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/ram.vhd
+# Fatal error in Architecture ram0 at C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/ram.vhd line 29
+# 
+# HDL call sequence:
+# Stopped at C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/ram.vhd 29 Architecture ram0
+# 
+# Compile of ram.vhd failed with 1 errors.
+# Compile of ram.vhd failed with 3 errors.
+# Compile of ram.vhd failed with 3 errors.
+# Compile of ram.vhd was successful.
+restart
+# Loading work.ram(ram0)
+# ** Warning: (vsim-8683) Uninitialized out port /tb/Buddy_Allocator/malloc_addr(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+do mem.do
+mem load -filltype value -filldata 0 -fillradix symbolic -skip 0 /tb/Buddy_Allocator/RAM0/myram
+do wave.do
+do wave.do
+run 2500ns
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/RAM0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+restart
+# ** Warning: (vsim-8683) Uninitialized out port /tb/Buddy_Allocator/malloc_addr(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+# Compile of search.vhd was successful.
+restart
+# Loading work.locator(synth_locator)
+# ** Warning: (vsim-8683) Uninitialized out port /tb/Buddy_Allocator/malloc_addr(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+do mem.do
+mem load -filltype value -filldata 0 -fillradix symbolic -skip 0 /tb/Buddy_Allocator/RAM0/myram
+do mem.do
+run 2500ns
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/RAM0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# Compile of search.vhd was successful.
+restart
+# Loading work.locator(synth_locator)
+# ** Warning: (vsim-8683) Uninitialized out port /tb/Buddy_Allocator/malloc_addr(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+run 2500ns
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/RAM0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 950 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1050 ns  Iteration: 4  Instance: /tb/Buddy_Allocator/RAM0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+restart
+# ** Warning: (vsim-8683) Uninitialized out port /tb/Buddy_Allocator/malloc_addr(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+do mem.do
+run 2500ns
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/RAM0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# Compile of search.vhd was successful.
+restart
+# Loading work.locator(synth_locator)
+# ** Warning: (vsim-8683) Uninitialized out port /tb/Buddy_Allocator/malloc_addr(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+do mem.do
+
+run 2500ns
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/RAM0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2050 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 2450 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# Compile of search.vhd was successful.
+restart
+# Loading work.locator(synth_locator)
+# ** Warning: (vsim-8683) Uninitialized out port /tb/Buddy_Allocator/malloc_addr(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+do mem.do
+run 2500ns
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/RAM0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 550 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 650 ns  Iteration: 2  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 850 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 1650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/LOCATOR0
+# End time: 10:08:47 on Feb 26,2015, Elapsed time: 1:00:33
+# Errors: 2, Warnings: 910

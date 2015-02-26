@@ -61,6 +61,7 @@ ARCHITECTURE synth OF rbuddy_top IS
   SIGNAL search_done_probe  : tree_probe;
   SIGNAL search_done_bit    : std_logic;
   SIGNAL flag_malloc_failed : std_logic;
+  SIGNAL start_search       : std_logic;
   
 BEGIN
 
@@ -77,7 +78,7 @@ BEGIN
     PORT MAP(
       clk          => clk,
       reset        => reset,
-      start        => start,
+      start        => start_search,
       probe_in     => search_start_probe,
       size_in      => size,
       direction_in => '0',              -- start direction is always DOWN
@@ -93,7 +94,8 @@ BEGIN
 
   BEGIN
 
-    nstate <= idle;                     -- default value
+    nstate       <= idle;               -- default value
+    start_search <= '0';
 
     IF state = idle THEN
       nstate <= idle;
@@ -107,7 +109,15 @@ BEGIN
 
     IF state = malloc THEN
       --  nstate <= malloc;
-      nstate <= search;  --for developing search block first, skip malloc state   
+      nstate                     <= search;  --for developing search block first, skip malloc state
+      start_search               <= '1';
+      search_start_probe.alvec   <= '0';  -- needs extra to check, but set to 0 for first simulation
+      search_start_probe.verti   <= (OTHERS => '0');
+      search_start_probe.horiz   <= (OTHERS => '0');
+      search_start_probe.rowbase <= (OTHERS => '0');
+      search_start_probe.saddr   <= (OTHERS => '0');
+      search_start_probe.nodesel <= (OTHERS => '0');
+      
     END IF;
 
     IF state = free THEN

@@ -61,6 +61,7 @@ ARCHITECTURE synth OF rbuddy_top IS
   SIGNAL search_done_probe  : tree_probe;
   SIGNAL search_done_bit    : std_logic;
   SIGNAL flag_malloc_failed : std_logic;
+  SIGNAL start_search       : std_logic;
   
 BEGIN
 
@@ -77,7 +78,7 @@ BEGIN
     PORT MAP(
       clk          => clk,
       reset        => reset,
-      start        => start,
+      start        => start_search,
       probe_in     => search_start_probe,
       size_in      => size,
       direction_in => '0',              -- start direction is always DOWN
@@ -94,7 +95,8 @@ BEGIN
   BEGIN
 
     nstate <= idle;                     -- default value
-
+    start_search <= '0';
+    
     IF state = idle THEN
       nstate <= idle;
       IF start = '1' THEN
@@ -107,7 +109,15 @@ BEGIN
 
     IF state = malloc THEN
       --  nstate <= malloc;
-      nstate <= search;  --for developing search block first, skip malloc state   
+      nstate <= search;  --for developing search block first, skip malloc state
+      start_search <= '1';
+      search_start_probe.alvec <= '0'; -- needs extra to check, but set to 0 for first simulation
+	  search_start_probe.verti <= (others => '0');
+	  search_start_probe.horiz <= (others => '0');
+	  search_start_probe.rowbase <= (others => '0');
+	  search_start_probe.saddr <= (others => '0');
+	  search_start_probe.nodesel <= (others => '0');	  
+      
     END IF;
 
     IF state = free THEN
@@ -151,10 +161,10 @@ BEGIN
 
   p2 : PROCESS(state,
                malloc0_we, malloc0_addr, malloc0_data_in,
-               search0_addr, 
-               down0_we, down0_addr, down0_data_in, 
-               up0_we, up0_addr, up0_data_in,      
-   ram0_data_out)  -- select ram signals
+               search0_addr,
+               down0_we, down0_addr, down0_data_in,
+               up0_we, up0_addr, up0_data_in,
+               ram0_data_out)           -- select ram signals
   BEGIN
 
     -- state = malloc (default)

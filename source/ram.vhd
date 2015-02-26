@@ -13,7 +13,7 @@ ENTITY ram IS
 END ENTITY ram;
 
 ARCHITECTURE ram0 OF ram IS
-  TYPE memory IS ARRAY(0 TO 255) OF std_logic_vector(31 DOWNTO 0);
+  TYPE memory IS ARRAY(0 TO 32768) OF std_logic_vector(31 DOWNTO 0);
   SIGNAL myram                     : memory;
   ATTRIBUTE ram_init_file          : string;
   ATTRIBUTE ram_init_file OF myram : SIGNAL IS "ram_data.hex";

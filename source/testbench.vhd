@@ -54,11 +54,11 @@ BEGIN
     END IF;
 
 
-    IF CtrCounter = 10 THEN
-      start   <= '1';
-      size    <= std_logic_vector(to_unsigned(10, size'length));
-      command <= '0';
-    END IF;
+ --   IF CtrCounter = 10 THEN
+ --     start   <= '1';
+ --     size    <= std_logic_vector(to_unsigned(10, size'length));
+ --     command <= '0';
+ --   END IF;
 
 
 
