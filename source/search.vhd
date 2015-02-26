@@ -38,6 +38,7 @@ ARCHITECTURE synth_locator OF locator IS
   SIGNAL gen_direction, direction : std_logic;  -- DOWN = 0, UP = 1
 
   SIGNAL FLAG_HERE : std_logic;
+  SIGNAL FLAG_ELSE : std_logic;
   
   
 
@@ -91,16 +92,14 @@ BEGIN
 
       IF state = prep THEN
         search_status <= '0';
-
-        flag_failed <= '0';
-
-
-        cur       <= probe_in;
-        direction <= direction_in;
+        flag_failed   <= '0';
+        cur           <= probe_in;
+        direction     <= direction_in;
       END IF;
 
       IF state = s0 THEN
         FLAG_HERE      <= '0';
+		FLAG_ELSE <= '0';
         flag_found     <= '0';
         flag_found_var := '0';
         gen.alvec      <= '0';
@@ -137,23 +136,11 @@ BEGIN
       IF state = s2 THEN
 
         IF size <= slv(usgn(top_node_size) SRL 4) THEN  --topsize/16
-          -- allocation won't be decided based on the current group
-          -- needs to find the next one to go down to
-          -- use the approach "finding starting address" in previous buddy allocator
-          -- address tree in mtree
-          -- 3
-          -- 7 11
-          -- 15 19 23 27
-          
           
           IF direction = '1' THEN       -- UP
-            -- mark the previously checked node
-            -- separate combinational process to update the tree
             mtree_var := utree;
-            
           ELSE                          -- DOWN
             mtree_var := mtree;
-            FLAG_HERE <= '1';
           END IF;
           mtree_VOUT <= mtree_var;
 
@@ -219,20 +206,25 @@ BEGIN
 
         ELSE
           IF cur.alvec = '1' THEN       -- using allocation vector
+            
             gen.alvec     <= '1';
             search_status <= '1';
+            flag_found    <= '1';
 
-            flag_found <= '1';
-            IF mtree(to_integer(usgn(cur.horiz(4 DOWNTO 0)) SLL 1)) = '0' THEN
-              gen.nodesel <= (OTHERS => '0');
-            ELSIF mtree(to_integer(usgn(cur.horiz(4 DOWNTO 0)) SLL 1+ 1)) = '0' THEN
-              gen.nodesel <= "001";
+            IF mtree(to_integer(resize(usgn(cur.horiz(4 DOWNTO 0)), 6) SLL 1)) = '0' THEN
+              nodesel_var := "000";
+              gen.nodesel <= nodesel_var;
+            ELSIF mtree(to_integer((resize(usgn(cur.horiz(4 DOWNTO 0)), 6) SLL 1)+ 1)) = '0' THEN
+              nodesel_var := "001";
+              gen.nodesel <= nodesel_var;
             ELSE
               flag_found    <= '0';
               search_status <= '0';
             END IF;
             
-          ELSE  -- cur.alvec= 0, not using allocation vector
+          END IF;
+
+          IF cur.alvec = '0' THEN  -- cur.alvec= 0, not using allocation vector
             -- allocation be decided in this level
             -- can only go up if no available node
             IF size <= slv(usgn(top_node_size) SRL 3) THEN  -- topsize/8
@@ -327,52 +319,41 @@ BEGIN
 
               IF flag_found_var = '1' THEN
                 gen.nodesel <= "000";
+                nodesel_var := "000";
               END IF;
               
             END IF;
 
-            IF flag_found_var = '1' THEN
-              search_status <= '1';
+          END IF;
+          
+		  IF flag_found_var = '1' THEN
+		                    FLAG_HERE <= '1';
+            search_status <= '1';
 
-              gen.verti     <= cur.verti;
-              gen.horiz     <= cur.horiz;
-              gen_direction <= '0';     -- go down
+            gen.verti     <= cur.verti;
+            gen.horiz     <= cur.horiz;
+            gen_direction <= '0';       -- go down
 
-              IF cur.alvec = '0' THEN
+            IF cur.alvec = '0' THEN     -- not use alvec
 
-                IF to_integer(usgn(top_node_size)) = 4 THEN
-                  gen.saddr <= slv(usgn(cur.saddr) + (usgn(nodesel_var) SRL 1));  -- gen.nodesel?
-                ELSE
-                  gen.saddr <= slv(usgn(cur.saddr) + (usgn(nodesel_var) SRL 3));  -- gen.nodesel?
-                END IF;
-
+              IF to_integer(usgn(top_node_size)) = 4 THEN
+                gen.saddr <= slv(usgn(cur.saddr) + (usgn(nodesel_var) SRL 1));  -- gen.nodesel?
               ELSE
-                
-                gen.saddr <= slv(usgn(cur.saddr) + usgn(nodesel_var));
-                
+                gen.saddr <= slv(usgn(cur.saddr) + (usgn(nodesel_var) SRL 3));  -- gen.nodesel?
               END IF;
 
-            ELSE                        -- not found
-
-              IF to_integer(usgn(cur.verti)) = 0 THEN
-                flag_failed <= '1';
-              ELSE                      -- GO UP
-                gen.verti     <= slv(usgn(cur.verti) - 1);
-                gen.horiz     <= slv(usgn(cur.horiz) SRL 3);
-                gen_direction <= '1';   -- UP = 1
-                gen.nodesel   <= slv(resize(usgn(cur.horiz(2 DOWNTO 0)), gen.nodesel'length));
-
-                gen.saddr <= slv(usgn(cur.saddr) - (resize(usgn(cur.nodesel), 32) SLL to_integer(usgn(log2top_node_size))));
-                
-              END IF;
+            ELSE                        -- using alvec
+              FLAG_ELSE <= '1';
+              gen.saddr <= slv(usgn(cur.saddr) + usgn(nodesel_var));
 
             END IF;
 
+            
           END IF;
-
         END IF;
-
       END IF;
+
+
 
       IF state = s3 THEN
 
@@ -385,6 +366,7 @@ BEGIN
       END IF;
 
     END IF;
+    
   END PROCESS;
 
   P2 : PROCESS(mtree, cur.nodesel)
