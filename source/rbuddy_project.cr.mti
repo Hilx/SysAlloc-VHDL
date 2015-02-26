@@ -1,5 +1,7 @@
-C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/rbuddy_top.vhd {1 {vcom -work work -93 -explicit -check_synthesis -stats=none C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/rbuddy_top.vhd
+C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/rbuddy_top.vhd {1 {vcom -work work -93 -explicit -check_synthesis {C:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\rbuddy_top.vhd}
 Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
+Start time: 21:04:24 on Feb 26,2015
+vcom -reportprogress 300 -work work -93 -explicit -check_synthesis C:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\rbuddy_top.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
@@ -9,9 +11,13 @@ Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
 -- Compiling architecture synth of rbuddy_top
 -- Loading entity ram
 -- Loading entity locator
+End time: 21:04:26 on Feb 26,2015, Elapsed time: 0:00:02
+Errors: 0, Warnings: 0
 
-} {} {}} C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/testbench.vhd {1 {vcom -work work -93 -explicit -check_synthesis -stats=none C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/testbench.vhd
+} {} {}} C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/testbench.vhd {1 {vcom -work work -93 -explicit -check_synthesis C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/testbench.vhd
 Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
+Start time: 21:04:23 on Feb 26,2015
+vcom -reportprogress 300 -work work -93 -explicit -check_synthesis C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/testbench.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
@@ -20,22 +26,32 @@ Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
 -- Compiling architecture behav of tb
 -- Loading package budpack
 -- Loading entity rbuddy_top
+End time: 21:04:24 on Feb 26,2015, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
 
-} {} {}} C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/ram.vhd {1 {vcom -work work -93 -explicit -check_synthesis -stats=none C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/ram.vhd
+} {} {}} C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/ram.vhd {1 {vcom -work work -93 -explicit -check_synthesis C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/ram.vhd
 Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
+Start time: 21:04:21 on Feb 26,2015
+vcom -reportprogress 300 -work work -93 -explicit -check_synthesis C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/ram.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
 -- Compiling entity ram
 -- Compiling architecture ram0 of ram
+End time: 21:04:22 on Feb 26,2015, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
 
-} {} {}} C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/budpack.vhd {1 {vcom -work work -93 -explicit -check_synthesis -stats=none C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/budpack.vhd
+} {} {}} C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/budpack.vhd {1 {vcom -work work -93 -explicit -check_synthesis C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/budpack.vhd
 Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
+Start time: 21:04:24 on Feb 26,2015
+vcom -reportprogress 300 -work work -93 -explicit -check_synthesis C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/budpack.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
 -- Compiling package budpack
+End time: 21:04:24 on Feb 26,2015, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
 
 } {} {}}

@@ -35,12 +35,7 @@ ARCHITECTURE synth_locator OF locator IS
   SIGNAL cur : tree_probe;
   SIGNAL gen : tree_probe;
 
-  SIGNAL gen_direction, direction : std_logic;  -- DOWN = 0, UP = 1
-
-  SIGNAL FLAG_HERE : std_logic;
-  SIGNAL FLAG_ELSE : std_logic;
-  
-  
+  SIGNAL gen_direction, direction : std_logic;  -- DOWN = 0, UP = 1 
 
 BEGIN
 
@@ -98,8 +93,7 @@ BEGIN
       END IF;
 
       IF state = s0 THEN
-        FLAG_HERE      <= '0';
-		FLAG_ELSE <= '0';
+	  
         flag_found     <= '0';
         flag_found_var := '0';
         gen.alvec      <= '0';
@@ -128,15 +122,13 @@ BEGIN
       END IF;
 
       IF state = s1 THEN
-        -- READ -- wait to make sure it's ready
-
         mtree <= ram_data_out;
       END IF;
 
       IF state = s2 THEN
 
         IF size <= slv(usgn(top_node_size) SRL 4) THEN  --topsize/16
-          
+           
           IF direction = '1' THEN       -- UP
             mtree_var := utree;
           ELSE                          -- DOWN
@@ -153,7 +145,7 @@ BEGIN
           END IF;
           flag_found <= flag_found_var;
 
-          IF flag_found_var = '1'THEN
+          IF flag_found_var = '1' THEN
 
             ------------------------ find starting address
             nodesel_var(2) := mtree_var(3);
@@ -205,11 +197,14 @@ BEGIN
           END IF;
 
         ELSE
+				
           IF cur.alvec = '1' THEN       -- using allocation vector
             
+			
             gen.alvec     <= '1';
             search_status <= '1';
             flag_found    <= '1';
+			flag_found_var := '1';
 
             IF mtree(to_integer(resize(usgn(cur.horiz(4 DOWNTO 0)), 6) SLL 1)) = '0' THEN
               nodesel_var := "000";
@@ -219,6 +214,7 @@ BEGIN
               gen.nodesel <= nodesel_var;
             ELSE
               flag_found    <= '0';
+			  flag_found_var := '0';
               search_status <= '0';
             END IF;
             
@@ -327,7 +323,7 @@ BEGIN
           END IF;
           
 		  IF flag_found_var = '1' THEN
-		                    FLAG_HERE <= '1';
+		               
             search_status <= '1';
 
             gen.verti     <= cur.verti;
@@ -343,26 +339,19 @@ BEGIN
               END IF;
 
             ELSE                        -- using alvec
-              FLAG_ELSE <= '1';
+             
               gen.saddr <= slv(usgn(cur.saddr) + usgn(nodesel_var));
 
-            END IF;
-
-            
+            END IF;            
           END IF;
         END IF;
       END IF;
 
-
-
       IF state = s3 THEN
-
         IF search_status = '0' THEN     -- continue the search          
           cur <= gen;
-
           direction <= gen_direction;
-        END IF;
-        
+        END IF;        
       END IF;
 
     END IF;
@@ -378,7 +367,7 @@ BEGIN
     mtree_var := mtree;
 
     FOR i IN 15 TO 29 LOOP
-      IF i <= to_integer(15 + (resize(usgn(cur.nodesel), 5) SLL 1))THEN  -- *2 (used to be SLL 2)
+      IF i <= to_integer(15 + (resize(usgn(cur.nodesel), 5) SLL 1))THEN
         mtree_var(i) := '1';
       ELSE
         mtree_var(i) := mtree(i);
@@ -400,10 +389,6 @@ BEGIN
   END PROCESS;
 
   ram_addr <= group_addr;
-
   probe_out <= gen;
-
-
+  
 END ARCHITECTURE;
-
-
