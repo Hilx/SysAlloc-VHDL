@@ -151,10 +151,10 @@ BEGIN
 
   p2 : PROCESS(state,
                malloc0_we, malloc0_addr, malloc0_data_in,
-               search0_addr,
-               down0_we, down0_addr, down0_data_in,
-               up0_we, up0_addr, up0_data_in,
-               ram0_data_out)           -- select ram signals
+               search0_addr, 
+               down0_we, down0_addr, down0_data_in, 
+               up0_we, up0_addr, up0_data_in,      
+   ram0_data_out)  -- select ram signals
   BEGIN
 
     -- state = malloc (default)

@@ -15,8 +15,7 @@ ENTITY locator IS
     probe_out    : OUT tree_probe;
     done_bit     : OUT std_logic;
     ram_addr     : OUT std_logic_vector(31 DOWNTO 0);
-    ram_data_out : IN  std_logic_vector(31 DOWNTO 0);
-	flag_failed : out std_logic
+    ram_data_out : IN  std_logic_vector(31 DOWNTO 0)
     );
 END ENTITY locator;
 
@@ -30,7 +29,7 @@ ARCHITECTURE synth_locator OF locator IS
   SIGNAL log2top_node_size       : std_logic_vector(6 DOWNTO 0);  -- range > 32
   SIGNAL group_addr_i            : std_logic_vector(31 DOWNTO 0);
   SIGNAL mtree, utree            : std_logic_vector(31 DOWNTO 0);
-  SIGNAL flag_found : std_logic;
+  SIGNAL flag_found, flag_failed : std_logic;
 
   SIGNAL cur : tree_probe;
   SIGNAL gen : tree_probe;
@@ -92,9 +91,14 @@ BEGIN
         flag_found     <= '0';
         flag_found_var := '0';
         flag_failed    <= '0';
-	
-	size        <= size_in;
- 	cur <= probe_in;
+
+        cur.alvec   <= probe_in.alvec;
+        size        <= size_in;
+        cur.verti   <= probe_in.verti;
+        cur.horiz   <= probe_in.horiz;
+        cur.nodesel <= probe_in.nodesel;
+        cur.saddr   <= probe_in.saddr;
+        cur.rowbase <= probe_in.rowbase;
         direction   <= direction_in;
       END IF;
 
