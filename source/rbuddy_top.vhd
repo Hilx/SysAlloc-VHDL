@@ -108,15 +108,13 @@ BEGIN
 	ram_data_out => down0_data_out
 	);
 
-  P0 : PROCESS(state, start, cmd,search_done_bit,search_done_probe)       -- controls FSM, only writes nstate!
+  P0 : PROCESS(state, start, cmd,search_done_bit,search_done_probe,dmark_done_bit)       -- controls FSM, only writes nstate!
 
   BEGIN
 
     nstate       <= idle;               -- default value
     start_search <= '0';
-
-	
-	flag_alloc <= '1';
+	start_dmark <= '0';
 	
     IF state = idle THEN
       nstate <= idle;
@@ -143,7 +141,15 @@ BEGIN
     END IF;
 
     IF state = free THEN
-      nstate <= free;
+    --  nstate <= free;
+			nstate <= downmark;
+		start_dmark <= '1';
+		dmark_start_probe.alvec <= search_done_probe.alvec;
+		dmark_start_probe.verti <= search_done_probe.verti;
+		dmark_start_probe.horiz <= search_done_probe.horiz;
+		dmark_start_probe.rowbase <= search_done_probe.rowbase;
+		dmark_start_probe.saddr <= search_done_probe.saddr;
+		dmark_start_probe.nodesel <= search_done_probe.nodesel;
     END IF;
 
     IF state = search THEN
@@ -166,6 +172,9 @@ BEGIN
 
     IF state = downmark THEN
       nstate <= downmark;
+	  if dmark_done_bit = '1' then 
+		nstate <= idle;
+	  end if;
     END IF;
 
     IF state = upmark THEN
@@ -229,6 +238,7 @@ BEGIN
   END PROCESS;
   
   malloc_addr <= search_done_probe.saddr;
+  flag_alloc <= not cmd;
   
 
 END ARCHITECTURE synth;

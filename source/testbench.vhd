@@ -52,6 +52,13 @@ BEGIN
       size    <= std_logic_vector(to_unsigned(289, size'length));
       command <= '0';
     END IF;
+	
+	IF CtrCounter = 35 THEN
+      start   <= '1';
+	  address <= (others => '0');
+      size    <= std_logic_vector(to_unsigned(289, size'length));
+      command <= '1';
+    END IF;
 
 
 
