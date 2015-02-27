@@ -26,7 +26,7 @@ ARCHITECTURE synth_dmark OF down_marker IS
   ALIAS slv IS std_logic_vector;
   ALIAS usgn IS unsigned;
 
-  TYPE StateType IS (idle, prep, computing, reading, marking, writing, done);
+  TYPE StateType IS (idle, prep, computing, reading, marking, writing0, writing1, done);
   SIGNAL state, nstate : StateType;
 
   SIGNAL top_node_size     : std_logic_vector(31 DOWNTO 0);
@@ -40,7 +40,7 @@ ARCHITECTURE synth_dmark OF down_marker IS
   SIGNAL size_left         : std_logic_vector(31 DOWNTO 0);
   SIGNAL flag_first        : std_logic;
   SIGNAL original_top_node : std_logic_vector(1 DOWNTO 0);
-  SIGNAL alvec_sel         : integer IN RANGE 0 TO 31;
+  SIGNAL alvec_sel         : integer RANGE 0 TO 31;
   SIGNAL shift             : std_logic_vector(5 DOWNTO 0);  -- double the first cur.nodesel
   SIGNAL utree             : std_logic_vector(31 DOWNTO 0);
   
@@ -61,8 +61,9 @@ BEGIN
       WHEN prep      => nstate <= computing;
       WHEN computing => nstate <= reading;
       WHEN reading   => nstate <= marking;
-      WHEN marking   => nstate <= writing;
-      WHEN writing =>
+      WHEN marking   => nstate <= writing0;
+      WHEN writing0  => nstate <= writing1;
+      WHEN writing1 =>
         nstate <= computing;
         IF to_integer(usgn(size_left)) = 0 THEN
           nstate <= done;
@@ -114,16 +115,16 @@ BEGIN
         -- ( horiz % 16 ) * 2
         alvec_sel <= to_integer(resize(usgn(cur.horiz(3 DOWNTO 0)), 5) SLL 1);
 
-        offset := '0';
+        offset := (others => '0');
 
       END IF;  -- finished case of computing
 
       IF state = reading THEN
         mtree <= ram_data_out;
 
-        shift <= "0000";
+        shift <= (others =>'0');
         IF flag_first = '1' THEN  -- keep a copy of the top node of chosen group
-          shift <= cur.nodesel & '0';   -- set shift value = nodesel * 2
+          shift <= slv(resize(usgn(cur.nodesel),shift'length) sll 1);   -- set shift value = nodesel * 2
 
           IF cur.alvec = '0' THEN
             original_top_node <= ram_data_out(1 DOWNTO 0);
@@ -152,9 +153,9 @@ BEGIN
           
         ELSIF to_integer(usgn(top_node_size)) = 4 THEN  -- topsize = 4
 
-          step := slv(resize(usgn(size_left)), setp'length);  -- step = size_left
+          step := slv(resize(usgn(size_left), step'length));  -- step = size_left
 
-          FOR i IN RANGE 0 TO 15 LOOP
+          FOR i IN 0 TO 15 LOOP
             -- if shift =< i < shift +step
             IF i >= to_integer(usgn(shift)) AND i < to_integer(usgn(shift) + usgn(step) SLL 1) THEN
               mtree(i + 14) <= flag_alloc;
@@ -166,8 +167,8 @@ BEGIN
 
         ELSE                            -- other topsize          
           
-          step := slv(usgn(size_left) SRL to_integer(usgn(log2top_node_size) - 3));
-          FOR i IN RANGE 0 TO 15 LOOP
+           step := slv(resize(usgn(size_left) SRL to_integer(usgn(log2top_node_size) - 3),step'length));
+          FOR i IN 0 TO 15 LOOP
             -- if shift =< i < shift +step
             IF i >= to_integer(usgn(shift)) AND i < to_integer(usgn(shift) + usgn(step) SLL 1) THEN
               mtree(i + 14) <= flag_alloc;
@@ -180,26 +181,36 @@ BEGIN
 
           IF to_integer(usgn(size_left_var)) /= 0 THEN
             -- mtree(14 + shift + 2 * step) <= 1
-            mtree(14 + to_integer(shift) + to_integer(usgn(step) SLL 1)) <= flag_alloc;
+            mtree(14 + to_integer(usgn(shift)) + to_integer(usgn(step) SLL 1)) <= flag_alloc;
           END IF;
           -- offset = shift/2 + step
           offset := slv(resize((usgn(shift) SRL 1) + usgn(step), offset'length));
           
         END IF;  -- finished discussing 4 cases
 
-        IF size_left_var \= 0 THEN
-          gen.saddr <= cur.saddr;
+        IF to_integer(usgn(size_left_var)) > 0 THEN
+          gen.saddr   <= cur.saddr;
           gen.nodesel <= offset;
           gen.verti   <= slv(usgn(cur.verti) + 1);
           gen.horiz   <= slv((usgn(cur.horiz) SLL 3) + usgn(offset));
+          gen.alvec   <= '0';
+          IF to_integer(usgn(top_node_size)) = 16 THEN
+            gen.alvec <= '1';
+          END IF;
           
         END IF;
         
-
       END IF;  -- finished case of marking
 
+      IF state = writing0 THEN
+        ram_data_in <= utree;
+      END IF;  -- finished case of writing0
 
-      
+      IF state = writing1 THEN
+        ram_we <= '1';
+
+        cur <= gen;
+      END IF;  -- finish case of writing1
       
     END IF;  -- not resetting
 
@@ -224,7 +235,7 @@ BEGIN
     vartree(1) := vartree(3) AND vartree(5);
 
     FOR i IN 14 TO 29 LOOP
-      vartree(i) = mtree(i);
+      vartree(i) := mtree(i);
     END LOOP;
 
     utree <= vartree;

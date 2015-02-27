@@ -63,6 +63,10 @@ ARCHITECTURE synth OF rbuddy_top IS
   SIGNAL flag_malloc_failed : std_logic;
   SIGNAL start_search       : std_logic;
   
+  signal start_dmark : std_logic;
+  signal flag_alloc : std_logic;
+  signal dmark_start_probe : tree_probe;
+  signal dmark_done_bit : std_logic;
 BEGIN
 
   RAM0 : ENTITY ram
@@ -89,14 +93,31 @@ BEGIN
       flag_failed  => flag_malloc_failed
       );
 
+	dmark : entity down_marker 
+	port map(
+	clk => clk,
+	reset => reset,
+	start => start_dmark,
+	flag_alloc => flag_alloc,
+	probe_in => dmark_start_probe,
+	reqsize => size,
+	done_bit => dmark_done_bit,
+	ram_we => down0_we,
+	ram_addr => down0_addr,
+	ram_data_in => down0_data_in,
+	ram_data_out => down0_data_out
+	);
 
-  P0 : PROCESS(state, start, cmd)       -- controls FSM, only writes nstate!
+  P0 : PROCESS(state, start, cmd,search_done_bit,search_done_probe)       -- controls FSM, only writes nstate!
 
   BEGIN
 
     nstate       <= idle;               -- default value
     start_search <= '0';
 
+	
+	flag_alloc <= '1';
+	
     IF state = idle THEN
       nstate <= idle;
       IF start = '1' THEN
@@ -110,6 +131,7 @@ BEGIN
     IF state = malloc THEN
       --  nstate <= malloc;
       nstate                     <= search;  --for developing search block first, skip malloc state
+
       start_search               <= '1';
       search_start_probe.alvec   <= '0';  -- needs extra to check, but set to 0 for first simulation
       search_start_probe.verti   <= (OTHERS => '0');
@@ -126,6 +148,16 @@ BEGIN
 
     IF state = search THEN
       nstate <= search;
+	  if search_done_bit = '1' then 
+		nstate <= downmark;
+		start_dmark <= '1';
+		dmark_start_probe.alvec <= search_done_probe.alvec;
+		dmark_start_probe.verti <= search_done_probe.verti;
+		dmark_start_probe.horiz <= search_done_probe.horiz;
+		dmark_start_probe.rowbase <= search_done_probe.rowbase;
+		dmark_start_probe.saddr <= search_done_probe.saddr;
+		dmark_start_probe.nodesel <= search_done_probe.nodesel;
+	end if;
     END IF;
 
     IF state = track THEN
@@ -197,6 +229,7 @@ BEGIN
   END PROCESS;
   
   malloc_addr <= search_done_probe.saddr;
+  
 
 END ARCHITECTURE synth;
 
