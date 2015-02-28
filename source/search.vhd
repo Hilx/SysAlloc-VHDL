@@ -35,7 +35,7 @@ ARCHITECTURE synth_locator OF locator IS
   SIGNAL gen                      : tree_probe;
   SIGNAL gen_direction, direction : std_logic;  -- DOWN = 0, UP = 1 
 
-  SIGNAL FLAG_ELSE,FLAG_HERE:std_logic;
+  SIGNAL FLAG_ELSE, FLAG_HERE : std_logic;
 BEGIN
 
   P0 : PROCESS(state, start, search_status)
@@ -79,10 +79,10 @@ BEGIN
     VARIABLE nodesel_var    : slv(2 DOWNTO 0);
   BEGIN
     WAIT UNTIL clk'event AND clk = '1';
-	
-	FLAG_ELSE <= '0';
-	FLAG_HERE <= '0';
-	
+
+    FLAG_ELSE <= '0';
+    FLAG_HERE <= '0';
+
     IF reset = '0' THEN                 -- active low
       state <= idle;
     ELSE
@@ -100,7 +100,7 @@ BEGIN
         flag_found     <= '0';
         flag_found_var := '0';
         gen.alvec      <= '0';
-		
+
 
         top_node_size     <= slv(usgn(TOTAL_MEM_BLOCKS) SRL (to_integer(3*(usgn(cur.verti)))));
         log2top_node_size <= slv(resize(usgn(LOG2TMB) - 3* (usgn(cur.verti)), log2top_node_size'length));
@@ -194,7 +194,7 @@ BEGIN
               gen.verti     <= slv(usgn(cur.verti) - 1);
               gen.horiz     <= slv(usgn(cur.horiz) SRL 3);
               gen_direction <= '1';     -- go up
-              nodesel_var := slv(resize(usgn(cur.horiz(2 DOWNTO 0)), gen.nodesel'length));
+              nodesel_var   := slv(resize(usgn(cur.horiz(2 DOWNTO 0)), gen.nodesel'length));
               gen.saddr     <= slv(usgn(cur.saddr) - resize(usgn(cur.nodesel), 32) SLL to_integer(usgn(log2top_node_size)));
             END IF;
 
@@ -212,10 +212,10 @@ BEGIN
 
             IF mtree(to_integer(resize(usgn(cur.horiz(4 DOWNTO 0)), 6) SLL 1)) = '0' THEN
               nodesel_var := "000";
-			  gen.rowbase <= cur.rowbase; -- keep that input rowbase if search done
+              gen.rowbase <= cur.rowbase;  -- keep that input rowbase if search done
             ELSIF mtree(to_integer((resize(usgn(cur.horiz(4 DOWNTO 0)), 6) SLL 1)+ 1)) = '0' THEN
               nodesel_var := "001";
-			  gen.rowbase <= cur.rowbase; -- keep that input rowbase if search done
+              gen.rowbase <= cur.rowbase;  -- keep that input rowbase if search done
 
             ELSE
               flag_found     <= '0';
@@ -307,7 +307,7 @@ BEGIN
                 nodesel_var(2) := mtree(3);
                 nodesel_var(1) := '0';
                 nodesel_var(0) := '0';
-    
+
                 ----------------------------------------------                    
                 
               END IF;
@@ -328,7 +328,7 @@ BEGIN
           IF flag_found_var = '1' THEN
             
             search_status <= '1';
-			gen.rowbase <= cur.rowbase; -- keep that input rowbase if search done
+            gen.rowbase   <= cur.rowbase;  -- keep that input rowbase if search done
 
             gen.verti     <= cur.verti;
             gen.horiz     <= cur.horiz;
@@ -338,17 +338,17 @@ BEGIN
 
               IF to_integer(usgn(top_node_size)) = 4 THEN
                 gen.saddr <= slv(usgn(cur.saddr) + (usgn(nodesel_var) SRL 1));  -- gen.nodesel?
-			
+                
               ELSE
                 gen.saddr <= slv(usgn(cur.saddr) + (usgn(nodesel_var) SLL to_integer(usgn(log2top_node_size) - 3)));  -- gen.nodesel?
-			
+                
               END IF;
 
             ELSE                        -- using alvec
               
               gen.saddr <= slv(usgn(cur.saddr) + usgn(nodesel_var));
             END IF;
-			
+            
           ELSE                          -- not found
 
             IF to_integer(usgn(cur.verti)) = 0 THEN
@@ -357,23 +357,23 @@ BEGIN
               gen.verti     <= slv(usgn(cur.verti) - 1);
               gen.horiz     <= slv(usgn(cur.horiz) SRL 3);
               gen_direction <= '1';     -- UP = 1
-              nodesel_var := slv(resize(usgn(cur.horiz(2 DOWNTO 0)), gen.nodesel'length));
+              nodesel_var   := slv(resize(usgn(cur.horiz(2 DOWNTO 0)), gen.nodesel'length));
 
-              gen.saddr <= slv(usgn(cur.saddr) - (resize(usgn(cur.nodesel), 32) SLL to_integer(usgn(log2top_node_size))));                         
-            END IF; -- verti = or != 0
-          END IF; -- flag found or not
+              gen.saddr <= slv(usgn(cur.saddr) - (resize(usgn(cur.nodesel), 32) SLL to_integer(usgn(log2top_node_size))));
+            END IF;  -- verti = or != 0
+          END IF;  -- flag found or not
         END IF;
-		
-		gen.nodesel <= nodesel_var;
+
+        gen.nodesel <= nodesel_var;
       END IF;
 
       IF state = s3 THEN
-	   
+        
         IF search_status = '0' THEN     -- continue the search          
           cur       <= gen;
           direction <= gen_direction;
         END IF;
-		
+        
       END IF;
 
     END IF;

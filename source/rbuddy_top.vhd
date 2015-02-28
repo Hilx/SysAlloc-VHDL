@@ -62,16 +62,26 @@ ARCHITECTURE synth OF rbuddy_top IS
   SIGNAL search_done_bit    : std_logic;
   SIGNAL flag_malloc_failed : std_logic;
   SIGNAL start_search       : std_logic;
-  
-  signal start_dmark : std_logic;
-  signal flag_alloc : std_logic;
-  signal dmark_start_probe : tree_probe;
-  signal dmark_done_bit : std_logic;
-  signal down_node_out : std_logic_vector(1 downto 0);
-  signal up_done_bit : std_logic;
-  signal start_upmark : std_logic;
-  signal upmark_start_probe : tree_probe;
-  signal flag_markup : std_logic;
+
+  SIGNAL start_dmark        : std_logic;
+  SIGNAL flag_alloc         : std_logic;
+  SIGNAL dmark_start_probe  : tree_probe;
+  SIGNAL dmark_done_bit     : std_logic;
+  SIGNAL down_node_out      : std_logic_vector(1 DOWNTO 0);
+  SIGNAL up_done_bit        : std_logic;
+  SIGNAL start_upmark       : std_logic;
+  SIGNAL upmark_start_probe : tree_probe;
+  SIGNAL flag_markup        : std_logic;
+
+  SIGNAL start_top_node_size     : std_logic_vector(31 DOWNTO 0);
+  SIGNAL start_log2top_node_size : std_logic_vector(31 DOWNTO 0);
+
+  SIGNAL start_free_info     : std_logic;
+  SIGNAL free_info_probe_out : tree_probe;
+  SIGNAL free_info_done_bit  : std_logic;
+  SIGNAL free_tns            : std_logic_vector(31 DOWNTO 0);
+  SIGNAL free_log2tns        : std_logic_vector(31 DOWNTO 0);
+  SIGNAL free_group_addr     : std_logic_vector(31 DOWNTO 0);
 BEGIN
 
   RAM0 : ENTITY ram
@@ -83,13 +93,12 @@ BEGIN
       data_out => ram0_data_out
       );
   LOCATOR0 : ENTITY locator
-
     PORT MAP(
       clk          => clk,
       reset        => reset,
       start        => start_search,
       probe_in     => search_start_probe,
-      size      => size,
+      size         => size,
       direction_in => '0',              -- start direction is always DOWN
       probe_out    => search_done_probe,
       done_bit     => search_done_bit,
@@ -98,59 +107,79 @@ BEGIN
       flag_failed  => flag_malloc_failed
       );
 
-	dmark : entity down_marker 
-	port map(
-	clk => clk,
-	reset => reset,
-	start => start_dmark,
-	flag_alloc => flag_alloc,
-	probe_in => dmark_start_probe,
-	reqsize => size,
-	done_bit => dmark_done_bit,
-	ram_we => down0_we,
-	ram_addr => down0_addr,
-	ram_data_in => down0_data_in,
-	ram_data_out => down0_data_out,
-	node_out => down_node_out,
-	flag_markup => flag_markup
-	);
-	
-	upmarker : entity up_marker
-	port map(
-		clk => clk,
-		reset => reset,
-		start => start_upmark,
-		probe_in => upmark_start_probe,
-		node_in => down_node_out,
-		done_bit => up_done_bit,
-		ram_we => up0_we,
-		ram_addr => up0_addr,
-		ram_data_in => up0_data_in,
-		ram_data_out => up0_data_out	
-	);
+  dmark : ENTITY down_marker
+    PORT MAP(
+      clk                  => clk,
+      reset                => reset,
+      start                => start_dmark,
+      flag_alloc           => flag_alloc,
+      probe_in             => dmark_start_probe,
+      reqsize              => size,
+      done_bit             => dmark_done_bit,
+      ram_we               => down0_we,
+      ram_addr             => down0_addr,
+      ram_data_in          => down0_data_in,
+      ram_data_out         => down0_data_out,
+      node_out             => down_node_out,
+      flag_markup          => flag_markup,
+      top_node_size_in     => start_top_node_size,
+      log2top_node_size_in => start_top_node_size_in
+      );
 
-  P0 : PROCESS(state, start, cmd,search_done_bit,search_done_probe,dmark_done_bit,up_done_bit)       -- controls FSM, only writes nstate!
+  upmarker : ENTITY up_marker
+    PORT MAP(
+      clk          => clk,
+      reset        => reset,
+      start        => start_upmark,
+      probe_in     => upmark_start_probe,
+      node_in      => down_node_out,
+      done_bit     => up_done_bit,
+      ram_we       => up0_we,
+      ram_addr     => up0_addr,
+      ram_data_in  => up0_data_in,
+      ram_data_out => up0_data_out
+      );
+
+  free_info_calc : ENTITY free_info
+    PORT MAP(
+      clk                   => clk,
+      reset                 => reset,
+      start                 => start_free_info,
+      address               => free_addr,
+      size                  => size,
+      probe_out             => free_info_probe_out,
+      done_bit              => free_info_done_bit,
+      top_node_size_out     => free_tns,
+      log2top_node_size_out => free_log2tns,
+      group_addr_out        => free_group_addr
+      );
+
+  P0 : PROCESS(state, start, cmd, search_done_bit, search_done_probe, dmark_done_bit, up_done_bitm, free_info_done_bit)  -- controls FSM, only writes nstate!
 
   BEGIN
 
-    nstate       <= idle;               -- default value
-    start_search <= '0';
-	start_dmark <= '0';
-	start_upmark <= '0';
-	
+    nstate          <= idle;            -- default value
+    start_search    <= '0';
+    start_dmark     <= '0';
+    start_upmark    <= '0';
+    start_free_info <= '0';
+
     IF state = idle THEN
       nstate <= idle;
       IF start = '1' THEN
         nstate <= malloc;               -- cmd = 0 malloc
         IF cmd = '1' THEN               -- cmd = 1 free
           nstate <= free;
+
+          start_free_info <= '1';
+          
         END IF;
       END IF;
     END IF;
 
     IF state = malloc THEN
       --  nstate <= malloc;
-      nstate                     <= search;  --for developing search block first, skip malloc state
+      nstate <= search;  --for developing search block first, skip malloc state
 
       start_search               <= '1';
       search_start_probe.alvec   <= '0';  -- needs extra to check, but set to 0 for first simulation
@@ -163,29 +192,35 @@ BEGIN
     END IF;
 
     IF state = free THEN
-    --  nstate <= free;
-			nstate <= downmark;
-		start_dmark <= '1';
-		dmark_start_probe.alvec <= search_done_probe.alvec;
-		dmark_start_probe.verti <= search_done_probe.verti;
-		dmark_start_probe.horiz <= search_done_probe.horiz;
-		dmark_start_probe.rowbase <= search_done_probe.rowbase;
-		dmark_start_probe.saddr <= search_done_probe.saddr;
-		dmark_start_probe.nodesel <= search_done_probe.nodesel;
+      nstate <= free;
+      IF free_info_done_bit = '1' THEN
+        nstate                    <= downmark;
+        start_dmark               <= '1';
+        dmark_start_probe.alvec   <= free_info_probe_out.alvec;
+        dmark_start_probe.verti   <= free_info_probe_out.verti;
+        dmark_start_probe.horiz   <= free_info_probe_out.horiz;
+        dmark_start_probe.rowbase <= free_info_probe_out.rowbase;
+        dmark_start_probe.saddr   <= free_info_probe_out.saddr;
+        dmark_start_probe.nodesel <= free_info_probe_out.nodesel;
+        start_top_node_size       <= free_tns;
+        start_log2top_node_size   <= free_log2tns;
+      END IF;
     END IF;
 
     IF state = search THEN
       nstate <= search;
-	  if search_done_bit = '1' then 
-		nstate <= downmark;
-		start_dmark <= '1';
-		dmark_start_probe.alvec <= search_done_probe.alvec;
-		dmark_start_probe.verti <= search_done_probe.verti;
-		dmark_start_probe.horiz <= search_done_probe.horiz;
-		dmark_start_probe.rowbase <= search_done_probe.rowbase;
-		dmark_start_probe.saddr <= search_done_probe.saddr;
-		dmark_start_probe.nodesel <= search_done_probe.nodesel;
-	end if;
+      IF search_done_bit = '1' THEN
+        nstate                    <= downmark;
+        start_dmark               <= '1';
+        dmark_start_probe.alvec   <= search_done_probe.alvec;
+        dmark_start_probe.verti   <= search_done_probe.verti;
+        dmark_start_probe.horiz   <= search_done_probe.horiz;
+        dmark_start_probe.rowbase <= search_done_probe.rowbase;
+        dmark_start_probe.saddr   <= search_done_probe.saddr;
+        dmark_start_probe.nodesel <= search_done_probe.nodesel;
+        start_top_node_size       <= TOTAL_MEM_BLOCKS;
+        start_log2top_node_size   <= LOG2TMB;
+      END IF;
     END IF;
 
     IF state = track THEN
@@ -194,32 +229,32 @@ BEGIN
 
     IF state = downmark THEN
       nstate <= downmark;
-	  if dmark_done_bit = '1' then 
-		
-		nstate <= idle;
-		if flag_markup = '1' then 
-		nstate <= upmark;
-		start_upmark <= '1';
-		
-		upmark_start_probe.alvec <= search_done_probe.alvec;
-		upmark_start_probe.verti <= search_done_probe.verti;
-		upmark_start_probe.horiz <= search_done_probe.horiz;
-		upmark_start_probe.rowbase <= search_done_probe.rowbase;
-		
-		upmark_start_probe.saddr <= search_done_probe.saddr;
-		upmark_start_probe.nodesel <= search_done_probe.nodesel;
-		
-		end if;
+      IF dmark_done_bit = '1' THEN
+        
+        nstate <= idle;
+        IF flag_markup = '1' THEN
+          nstate       <= upmark;
+          start_upmark <= '1';
 
-	  end if;
+          upmark_start_probe.alvec   <= search_done_probe.alvec;
+          upmark_start_probe.verti   <= search_done_probe.verti;
+          upmark_start_probe.horiz   <= search_done_probe.horiz;
+          upmark_start_probe.rowbase <= search_done_probe.rowbase;
+
+          upmark_start_probe.saddr   <= search_done_probe.saddr;
+          upmark_start_probe.nodesel <= search_done_probe.nodesel;
+          
+        END IF;
+
+      END IF;
     END IF;
 
     IF state = upmark THEN
-		
+      
       nstate <= upmark;
-	  if up_done_bit = '1' then 
-		nstate <= idle;
-	  end if;
+      IF up_done_bit = '1' THEN
+        nstate <= idle;
+      END IF;
     END IF;
 
     IF state = done_state THEN
@@ -277,9 +312,9 @@ BEGIN
     END IF;
     
   END PROCESS;
-  
+
   malloc_addr <= search_done_probe.saddr;
-  flag_alloc <= not cmd;
+  flag_alloc  <= NOT cmd;
   
 
 END ARCHITECTURE synth;

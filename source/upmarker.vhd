@@ -25,8 +25,8 @@ ARCHITECTURE synth_umark OF up_marker IS
   ALIAS usgn IS unsigned;
 
   TYPE StateType IS (idle, prep, s0, s_read, s_w0, s_w1, done);
-  SIGNAL state, nstate : StateType;
-  signal mtree,utree : std_logic_vector(31 downto 0);
+  SIGNAL state, nstate     : StateType;
+  SIGNAL mtree, utree      : std_logic_vector(31 DOWNTO 0);
   SIGNAL cur, gen          : tree_probe;
   SIGNAL group_addr        : std_logic_vector(31 DOWNTO 0);
   SIGNAL node_propa        : std_logic_vector(1 DOWNTO 0);
@@ -76,21 +76,21 @@ BEGIN
       END IF;
 
       IF state = s0 THEN
-	  
+        
         gen.verti   <= slv(usgn(cur.verti) - 1);
         gen.horiz   <= slv(usgn(cur.horiz) SRL 3);  -- input.horiz/8
         -- output row base = input row base - 2^(output verti- 1)
-        -- output row base = input row base - 2^(input verti - 2)		
+        -- output row base = input row base - 2^(input verti - 2)               
         gen.rowbase <= slv(usgn(cur.rowbase) - (to_unsigned(1, gen.rowbase'length) SLL to_integer(3 * (usgn(cur.verti) - 2))));
         group_addr  <= slv(usgn(cur.rowbase) + (usgn(cur.horiz) SRL 3));
         -- index = 14 + (input horiz % 8) * 2
-        index <= to_integer((usgn(cur.horiz(2 DOWNTO 0)) SLL 1));       
+        index       <= to_integer((usgn(cur.horiz(2 DOWNTO 0)) SLL 1));
 
       END IF;  -- finish state = s0
 
       IF state = s_read THEN
         original_top_node <= ram_data_out(1 DOWNTO 0);  -- keep a copy of the original top node
-        FOR i IN 0 TO 31 LOOP 
+        FOR i IN 0 TO 31 LOOP
           mtree(i) <= ram_data_out(i);
           IF i = index + 14 THEN
             mtree(i) <= node_propa(0);

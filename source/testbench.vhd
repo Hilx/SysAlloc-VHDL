@@ -52,24 +52,24 @@ BEGIN
       size    <= std_logic_vector(to_unsigned(4, size'length));
       command <= '0';
     END IF;
-	
-	IF CtrCounter = 36 THEN
+
+    IF CtrCounter = 36 THEN
       start   <= '1';
-	-- address <= (others => '0');
+      -- address <= (others => '0');
       size    <= std_logic_vector(to_unsigned(4, size'length));
       command <= '0';
     END IF;
-	
-	IF CtrCounter = 72 THEN
+
+    IF CtrCounter = 72 THEN
       start   <= '1';
-	 address <=  std_logic_vector(to_unsigned(4, size'length));
+      address <= std_logic_vector(to_unsigned(4, size'length));
       size    <= std_logic_vector(to_unsigned(4, size'length));
       command <= '1';
     END IF;
 
-	IF CtrCounter = 108 THEN
+    IF CtrCounter = 108 THEN
       start   <= '1';
-	 address <=  std_logic_vector(to_unsigned(0, size'length));
+      address <= std_logic_vector(to_unsigned(0, size'length));
       size    <= std_logic_vector(to_unsigned(4, size'length));
       command <= '1';
     END IF;
