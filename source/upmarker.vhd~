@@ -1,0 +1,34 @@
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+USE IEEE.numeric_std.ALL;
+USE work.ALL;
+USE work.budpack.ALL;
+
+ENTITY up_marker IS
+  PORT(
+    clk          : IN  std_logic;
+    reset        : IN  std_logic;
+    start        : IN  std_logic;
+    flag_alloc   : IN  std_logic;       -- 1 = alloc, 0 = free
+    probe_in     : IN  tree_probe;
+    reqsize      : IN  std_logic_vector(31 DOWNTO 0);
+    done_bit     : OUT std_logic;
+    ram_we       : OUT std_logic;
+    ram_addr     : OUT std_logic_vector(31 DOWNTO 0);
+    ram_data_in  : OUT std_logic_vector(31 DOWNTO 0);
+    ram_data_out : IN  std_logic_vector(31 DOWNTO 0)
+    );
+END ENTITY up_marker;
+
+ARCHITECTURE synth_umark OF up_marker IS
+
+  ALIAS slv IS std_logic_vector;
+  ALIAS usgn IS unsigned;
+
+  TYPE StateType IS (idle, prep, s0, s_read, s_mark, s_w0, s_w1, done, store, update);
+  SIGNAL state, nstate : StateType;
+
+
+BEGIN
+
+END ARCHITECTURE;

@@ -13,6 +13,7 @@ ENTITY down_marker IS
     probe_in     : IN  tree_probe;
     reqsize      : IN  std_logic_vector(31 DOWNTO 0);
     done_bit     : OUT std_logic;
+	node_out : out std_logic_vector(1 downto 0);
     ram_we       : OUT std_logic;
     ram_addr     : OUT std_logic_vector(31 DOWNTO 0);
     ram_data_in  : OUT std_logic_vector(31 DOWNTO 0);
@@ -288,10 +289,12 @@ BEGIN
           IF cur.verti = probe_in.verti THEN
             flag_markup <= '1';
             IF gen.alvec = '0' THEN
+				node_out <= utree(1 DOWNTO 0);
               IF utree(1 DOWNTO 0) = original_top_node THEN
                 flag_markup <= '0';
               END IF;
             ELSE
+			node_out <= mtree(alvec_sel + 1 DOWNTO alvec_sel);
               IF mtree(alvec_sel + 1 DOWNTO alvec_sel) = original_top_node THEN
                 flag_markup <= '0';
               END IF;
@@ -318,6 +321,7 @@ BEGIN
             state <= done;
 			
 			flag_markup <= '1';
+			node_out <= utree(1 DOWNTO 0);
             IF gen.alvec = '0' THEN
               IF utree(1 DOWNTO 0) = original_top_node THEN
                 flag_markup <= '0';
