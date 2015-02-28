@@ -160,10 +160,10 @@ BEGIN
         IF flag_first = '1' THEN  -- keep a copy of the top node of chosen group
           flag_first <= '0';
           shift      <= slv(resize(usgn(cur.nodesel), shift'length) SLL 1);  -- set shift value = nodesel * 2
-		
-			if to_integer(usgn(top_node_size)) = 4 then -- special case for shift
-			shift      <= slv(resize(usgn(cur.nodesel), shift'length) SLL 2);  -- set shift value = nodesel * 4
-			end if;
+		-- probably doesn't need special case, as the nodesel is always in range 0 to 7.
+		--	if to_integer(usgn(top_node_size)) = 4 then -- special case for shift
+		--	shift      <= slv(resize(usgn(cur.nodesel), shift'length) SLL 2);  -- set shift value = nodesel * 4
+		--	end if;
 			
           IF cur.alvec = '0' THEN
             original_top_node <= ram_data_out(1 DOWNTO 0);
