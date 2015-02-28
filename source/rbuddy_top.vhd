@@ -67,6 +67,11 @@ ARCHITECTURE synth OF rbuddy_top IS
   signal flag_alloc : std_logic;
   signal dmark_start_probe : tree_probe;
   signal dmark_done_bit : std_logic;
+  signal down_node_out : std_logic_vector(1 downto 0);
+  signal up_done_bit : std_logic;
+  signal start_upmark : std_logic;
+  signal upmark_start_probe : tree_probe;
+  signal flag_markup : std_logic;
 BEGIN
 
   RAM0 : ENTITY ram
@@ -105,16 +110,33 @@ BEGIN
 	ram_we => down0_we,
 	ram_addr => down0_addr,
 	ram_data_in => down0_data_in,
-	ram_data_out => down0_data_out
+	ram_data_out => down0_data_out,
+	node_out => down_node_out,
+	flag_markup => flag_markup
+	);
+	
+	upmarker : entity up_marker
+	port map(
+		clk => clk,
+		reset => reset,
+		start => start_upmark,
+		probe_in => upmark_start_probe,
+		node_in => down_node_out,
+		done_bit => up_done_bit,
+		ram_we => up0_we,
+		ram_addr => up0_addr,
+		ram_data_in => up0_data_in,
+		ram_data_out => up0_data_out	
 	);
 
-  P0 : PROCESS(state, start, cmd,search_done_bit,search_done_probe,dmark_done_bit)       -- controls FSM, only writes nstate!
+  P0 : PROCESS(state, start, cmd,search_done_bit,search_done_probe,dmark_done_bit,up_done_bit)       -- controls FSM, only writes nstate!
 
   BEGIN
 
     nstate       <= idle;               -- default value
     start_search <= '0';
 	start_dmark <= '0';
+	start_upmark <= '0';
 	
     IF state = idle THEN
       nstate <= idle;
@@ -173,12 +195,31 @@ BEGIN
     IF state = downmark THEN
       nstate <= downmark;
 	  if dmark_done_bit = '1' then 
+		
 		nstate <= idle;
+		if flag_markup = '1' then 
+		nstate <= upmark;
+		start_upmark <= '1';
+		
+		upmark_start_probe.alvec <= search_done_probe.alvec;
+		upmark_start_probe.verti <= search_done_probe.verti;
+		upmark_start_probe.horiz <= search_done_probe.horiz;
+		upmark_start_probe.rowbase <= search_done_probe.rowbase;
+		
+		upmark_start_probe.saddr <= search_done_probe.saddr;
+		upmark_start_probe.nodesel <= search_done_probe.nodesel;
+		
+		end if;
+
 	  end if;
     END IF;
 
     IF state = upmark THEN
+		
       nstate <= upmark;
+	  if up_done_bit = '1' then 
+		nstate <= idle;
+	  end if;
     END IF;
 
     IF state = done_state THEN

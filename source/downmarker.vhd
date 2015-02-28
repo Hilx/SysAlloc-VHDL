@@ -13,7 +13,8 @@ ENTITY down_marker IS
     probe_in     : IN  tree_probe;
     reqsize      : IN  std_logic_vector(31 DOWNTO 0);
     done_bit     : OUT std_logic;
-	node_out : out std_logic_vector(1 downto 0);
+	node_out     : out std_logic_vector(1 downto 0);
+	  flag_markup       : out  std_logic;
     ram_we       : OUT std_logic;
     ram_addr     : OUT std_logic_vector(31 DOWNTO 0);
     ram_data_in  : OUT std_logic_vector(31 DOWNTO 0);
@@ -41,18 +42,20 @@ ARCHITECTURE synth_dmark OF down_marker IS
   SIGNAL alvec_sel         : integer RANGE 0 TO 31;
   SIGNAL shift             : std_logic_vector(5 DOWNTO 0);  -- double the first cur.nodesel
   SIGNAL utree             : std_logic_vector(31 DOWNTO 0);
-  SIGNAL flag_markup       : std_logic;
+ 
   -- free related
   TYPE holder_array IS ARRAY (0 TO MAX_TREE_DEPTH) OF holder_type;
   SIGNAL holder            : holder_array;
   SIGNAL index             : std_logic_vector(5 DOWNTO 0);
   SIGNAL effective_node    : std_logic_vector(1 DOWNTO 0);
-
+signal flag_free_first_write : std_logic;
+  
 -- debugging
   SIGNAL offset_debug    : std_logic_vector(2 DOWNTO 0);
   SIGNAL step_debug      : std_logic_vector(2 DOWNTO 0);  -- 8 possible nodes to mark
   SIGNAL size_left_debug : slv(31 DOWNTO 0);
 
+  
   SIGNAL FLAG_HERE : std_logic;
 BEGIN
 
@@ -124,6 +127,7 @@ BEGIN
         size_left  <= reqsize;
         flag_first <= '1';
 		flag_markup <= '0';
+		flag_free_first_write <= '1';
       END IF;
 
       IF state = s0 THEN
@@ -156,7 +160,11 @@ BEGIN
         IF flag_first = '1' THEN  -- keep a copy of the top node of chosen group
           flag_first <= '0';
           shift      <= slv(resize(usgn(cur.nodesel), shift'length) SLL 1);  -- set shift value = nodesel * 2
-
+		
+			if to_integer(usgn(top_node_size)) = 4 then -- special case for shift
+			shift      <= slv(resize(usgn(cur.nodesel), shift'length) SLL 2);  -- set shift value = nodesel * 4
+			end if;
+			
           IF cur.alvec = '0' THEN
             original_top_node <= ram_data_out(1 DOWNTO 0);
           ELSE                          -- in allocation vector            
@@ -188,7 +196,7 @@ BEGIN
 
           FOR i IN 0 TO 15 LOOP
             -- if shift =< i < shift +step
-            IF i >= to_integer(usgn(shift)) AND i < to_integer(usgn(shift) + usgn(step) SLL 2) THEN
+            IF i >= to_integer(usgn(shift)) AND i < to_integer(usgn(shift) + (usgn(step) SLL 2)) THEN
               mtree(i + 14) <= flag_alloc;
             END IF;
           END LOOP;
@@ -201,8 +209,9 @@ BEGIN
           step := slv(resize(usgn(size_left) SRL to_integer(usgn(log2top_node_size) - 3), step'length));
           FOR i IN 0 TO 15 LOOP
             -- if shift =< i < shift +step
-            IF i >= to_integer(usgn(shift)) AND i < to_integer(usgn(shift) + usgn(step) SLL 1) THEN
+            IF i >= to_integer(usgn(shift)) AND i < to_integer(usgn(shift) + (usgn(step) SLL 1)) THEN
               mtree(i + 14) <= flag_alloc;
+			  FLAG_HERE <= '1';
             END IF;
           END LOOP;
 
@@ -248,9 +257,11 @@ BEGIN
           END IF;
           
         END IF;
-
+		
+		if flag_alloc = '0' then 
         index <= slv(resize(usgn(cur.verti),index'length));
-
+		end if;
+		
         offset_debug <= offset;
         
       END IF;  -- finished case of s_mark
@@ -264,21 +275,22 @@ BEGIN
         END IF;
 
         -- for free update stuff
-        IF flag_alloc = '0' THEN
-			 
-			
+        IF flag_alloc = '0' THEN			 
+		  if to_integer(usgn(index)) > 0 then 	
           index_var := to_integer(usgn(index) - 1);
           index     <= slv(to_unsigned(index_var, index'length));
 
           update_start_bit := to_integer(usgn(holder(index_var).nodesel) SLL 1);
 
+		  
           mtree_var                                              := holder(index_var).mtree;
-          mtree_var(update_start_bit +1 DOWNTO update_start_bit) := effective_node;
-
+		  mtree_var(update_start_bit +1 DOWNTO update_start_bit) := effective_node;
+	
           mtree <= mtree_var;
 		  
 		  group_addr <= holder(index_var).gaddr;
-
+		 end if;		 
+		 
           IF gen.alvec = '1' THEN
             effective_node <= mtree(alvec_sel+1 DOWNTO alvec_sel);
           ELSE
@@ -314,27 +326,10 @@ BEGIN
 
         cur <= gen;
 
-        -- free
-        IF flag_alloc = '0' THEN
-          
-          IF to_integer(usgn(index)) = to_integer(usgn(probe_in.verti)) THEN
-            state <= done;
-			
-			flag_markup <= '1';
-			node_out <= utree(1 DOWNTO 0);
-            IF gen.alvec = '0' THEN
-              IF utree(1 DOWNTO 0) = original_top_node THEN
-                flag_markup <= '0';
-              END IF;              
-            END IF;
-
-          END IF;
-		  
-
-          
-        END IF;
 
       END IF;  -- finish case of s_w1
+	  
+
 
       IF state = store THEN
 

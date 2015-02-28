@@ -35,6 +35,7 @@ ARCHITECTURE synth_locator OF locator IS
   SIGNAL gen                      : tree_probe;
   SIGNAL gen_direction, direction : std_logic;  -- DOWN = 0, UP = 1 
 
+  SIGNAL FLAG_ELSE,FLAG_HERE:std_logic;
 BEGIN
 
   P0 : PROCESS(state, start, search_status)
@@ -78,6 +79,10 @@ BEGIN
     VARIABLE nodesel_var    : slv(2 DOWNTO 0);
   BEGIN
     WAIT UNTIL clk'event AND clk = '1';
+	
+	FLAG_ELSE <= '0';
+	FLAG_HERE <= '0';
+	
     IF reset = '0' THEN                 -- active low
       state <= idle;
     ELSE
@@ -207,9 +212,10 @@ BEGIN
 
             IF mtree(to_integer(resize(usgn(cur.horiz(4 DOWNTO 0)), 6) SLL 1)) = '0' THEN
               nodesel_var := "000";
-
+			  gen.rowbase <= cur.rowbase; -- keep that input rowbase if search done
             ELSIF mtree(to_integer((resize(usgn(cur.horiz(4 DOWNTO 0)), 6) SLL 1)+ 1)) = '0' THEN
               nodesel_var := "001";
+			  gen.rowbase <= cur.rowbase; -- keep that input rowbase if search done
 
             ELSE
               flag_found     <= '0';
@@ -322,6 +328,7 @@ BEGIN
           IF flag_found_var = '1' THEN
             
             search_status <= '1';
+			gen.rowbase <= cur.rowbase; -- keep that input rowbase if search done
 
             gen.verti     <= cur.verti;
             gen.horiz     <= cur.horiz;
@@ -331,8 +338,10 @@ BEGIN
 
               IF to_integer(usgn(top_node_size)) = 4 THEN
                 gen.saddr <= slv(usgn(cur.saddr) + (usgn(nodesel_var) SRL 1));  -- gen.nodesel?
+			
               ELSE
-                gen.saddr <= slv(usgn(cur.saddr) + (usgn(nodesel_var) SRL 3));  -- gen.nodesel?
+                gen.saddr <= slv(usgn(cur.saddr) + (usgn(nodesel_var) SLL to_integer(usgn(log2top_node_size) - 3)));  -- gen.nodesel?
+			
               END IF;
 
             ELSE                        -- using alvec
@@ -359,10 +368,12 @@ BEGIN
       END IF;
 
       IF state = s3 THEN
+	   
         IF search_status = '0' THEN     -- continue the search          
           cur       <= gen;
           direction <= gen_direction;
         END IF;
+		
       END IF;
 
     END IF;
