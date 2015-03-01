@@ -3672,3 +3672,85 @@ run 20000ns
 #    Time: 15750 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/dmark
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 18350 ns  Iteration: 3  Instance: /tb/Buddy_Allocator/RAM0
+# Compile of downmarker.vhd failed with 1 errors.
+# Compile of downmarker.vhd was successful.
+restart
+# Loading work.down_marker(synth_dmark)
+do mem.do
+run 20000ns
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/LOCATOR0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/Buddy_Allocator/RAM0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 950 ns  Iteration: 3  Instance: /tb/Buddy_Allocator/RAM0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 1150 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/dmark
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 3150 ns  Iteration: 3  Instance: /tb/Buddy_Allocator/RAM0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 3350 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/upmarker
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2 is not in bounds of NATURAL.
+#    Time: 3650 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/upmarker
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 3750 ns  Iteration: 3  Instance: /tb/Buddy_Allocator/RAM0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 7850 ns  Iteration: 3  Instance: /tb/Buddy_Allocator/RAM0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 10250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/free_info_calc
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 11250 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/dmark
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 11450 ns  Iteration: 3  Instance: /tb/Buddy_Allocator/RAM0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 15350 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/free_info_calc
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 15750 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/dmark
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 16150 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/dmark
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 16550 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/dmark
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 16950 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/dmark
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 17350 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/dmark
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 17750 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/dmark
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 18150 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/dmark
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 18550 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/dmark
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 18950 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/dmark
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 19350 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/dmark
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -1073741826 is not in bounds of NATURAL.
+#    Time: 19750 ns  Iteration: 1  Instance: /tb/Buddy_Allocator/dmark

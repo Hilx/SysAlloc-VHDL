@@ -284,6 +284,7 @@ BEGIN
 
         -- for free update stuff
         IF flag_alloc = '0' THEN
+		
           IF to_integer(usgn(index)) > 0 THEN
             index_var := to_integer(usgn(index) - 1);
             index     <= slv(to_unsigned(index_var, index'length));
@@ -301,17 +302,19 @@ BEGIN
 
           IF gen.alvec = '1' THEN
             effective_node <= mtree(alvec_sel+1 DOWNTO alvec_sel);
+			node_out <= mtree(alvec_sel+1 DOWNTO alvec_sel);
           ELSE
             effective_node <= utree(1 DOWNTO 0);
+			node_out <= mtree(alvec_sel+1 DOWNTO alvec_sel);
           END IF;
 
-          IF flag_free_first_write = '1' THEN
+--          IF flag_free_first_write = '1' THEN
             
-            IF gen.alvec = '0' THEN
-              node_out <= utree(1 DOWNTO 0);
-            ELSE
-              node_out <= mtree(alvec_sel + 1 DOWNTO 0);
-            END IF;            
+--           IF gen.alvec = '0' THEN
+--             node_out <= utree(1 DOWNTO 0);
+--            ELSE
+ --             node_out <= mtree(alvec_sel + 1 DOWNTO 0);
+ --           END IF;            
             
           END IF;
           
@@ -351,27 +354,28 @@ BEGIN
             state <= done;
 
             flag_markup <= '1';
-
-
+		    IF effective_node = original_top_node OR flag_stop = '1' THEN
+                flag_markup <= '0';
+            END IF;
+			
             --   IF gen.alvec = '0' THEN
             IF flag_free_first_write = '0' THEN
               group_addr <= holder(to_integer(usgn(index))).gaddr;
               --  IF utree(1 DOWNTO 0) = original_top_node THEN
-              IF effective_node = original_top_node THEN
-                flag_markup <= '0';
-              END IF;
+        --      IF effective_node = original_top_node THEN
+         --       flag_markup <= '0';
+        --      END IF;
             ELSE
 
-              IF effective_node = original_top_node OR flag_stop = '1' THEN
-                flag_markup <= '0';
-              END IF;
+         --     IF effective_node = original_top_node OR flag_stop = '1' THEN
+         --       flag_markup <= '0';
+         --     END IF;
               flag_free_first_write <= '0';
               
             END IF;
           --   END IF;           
           END IF;
-        END IF;
-        
+         
       END IF;  -- finish case of s_w1
 
       IF state = store THEN
