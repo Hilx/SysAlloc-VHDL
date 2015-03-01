@@ -305,16 +305,13 @@ BEGIN
             effective_node <= utree(1 DOWNTO 0);
           END IF;
 
-
           IF flag_free_first_write = '1' THEN
-
             
             IF gen.alvec = '0' THEN
               node_out <= utree(1 DOWNTO 0);
             ELSE
               node_out <= mtree(alvec_sel + 1 DOWNTO 0);
-            END IF;
-            
+            END IF;            
             
           END IF;
           
