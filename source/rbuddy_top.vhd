@@ -82,6 +82,12 @@ ARCHITECTURE synth OF rbuddy_top IS
   SIGNAL free_tns            : std_logic_vector(31 DOWNTO 0);
   SIGNAL free_log2tns        : std_logic_vector(6 DOWNTO 0);
   SIGNAL free_group_addr     : std_logic_vector(31 DOWNTO 0);
+
+  -- tracker ram
+  SIGNAL tracker_we       : std_logic;
+  SIGNAL tracker_addr     : integer RANGE 0 TO 31;
+  SIGNAL tracker_data_in  : std_logic_vector(31 DOWNTO 0);
+  SIGNAL tracker_data_out : std_logic_vector(31 DOWNTO 0);
 BEGIN
 
   RAM0 : ENTITY ram
@@ -154,6 +160,15 @@ BEGIN
       group_addr_out        => free_group_addr
       );
 
+  tracker : ENTITY tracker_ram
+    PORT MAP (
+      clk     => clk,
+      we      => tracker_we,
+      address => tracker_addr,
+      data_in => tracker_data_in,
+      data_out = > tracker_data_out
+      );
+
   P0 : PROCESS(state, start, cmd, search_done_bit, search_done_probe,
                dmark_done_bit, up_done_bit, free_info_done_bit, free_info_probe_out,
                free_tns, free_log2tns, flag_markup, flag_alloc)  -- controls FSM, only writes nstate!
@@ -196,8 +211,9 @@ BEGIN
     IF state = free THEN
       nstate <= free;
       IF free_info_done_bit = '1' THEN
-        nstate                  <= downmark;
-        start_dmark             <= '1';
+	  nstate <= track;
+        --nstate                  <= downmark;
+        --start_dmark             <= '1';
         dmark_start_probe       <= free_info_probe_out;
         start_top_node_size     <= free_tns;
         start_log2top_node_size <= free_log2tns;
@@ -207,16 +223,24 @@ BEGIN
     IF state = search THEN
       nstate <= search;
       IF search_done_bit = '1' THEN
+	  if flag_malloc_failed = '0' then 
+	  nstate <= track;
         nstate                  <= downmark;
-        start_dmark             <= '1';
+        --start_dmark             <= '1';
+		-- pass the information for downward marking
         dmark_start_probe       <= search_done_probe;
         start_top_node_size     <= TOTAL_MEM_BLOCKS;
         start_log2top_node_size <= LOG2TMB;
+		
+		else
+		nstate <= done;
+		end if;
       END IF;
     END IF;
 
     IF state = track THEN
-      nstate <= track;
+		nstate <= downmark;
+		start_dmark <= '1';
     END IF;
 
     IF state = downmark THEN
@@ -262,6 +286,17 @@ BEGIN
       state <= idle;
     ELSE
       state <= nstate;                  -- default
+	  
+	  if state = track then 
+	  
+		if flag_alloc = '0' then -- free 
+		   
+		else -- malloc
+		
+		end if;
+	  
+	  end if;
+	  
     END IF;
     
   END PROCESS;

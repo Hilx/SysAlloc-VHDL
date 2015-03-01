@@ -86,7 +86,7 @@ BEGIN
       END IF;
 
       IF state = s0 THEN
-
+	  
         state                     <= s1;
         IF to_integer(usgn(size)) <= to_integer(top_node_size SRL 4) THEN
           state             <= nstate;
