@@ -229,6 +229,7 @@ BEGIN
 	start_tracker <= '0';
 	start_search <= '0';
 	start_check_blocking <= '0';
+	tracker_func_sel <= '1';
 
     IF state = idle THEN
       nstate <= idle;
@@ -255,7 +256,7 @@ BEGIN
 		else -- cblock 
 			nstate <= malloc1;
 			start_check_blocking <= '1';
-			search_start_probe <= tracker_probe_out;		
+			cblock_probe_in <= tracker_probe_out;		
 		end if;		
 	  end if;
       
