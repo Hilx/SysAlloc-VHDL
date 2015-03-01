@@ -12,281 +12,325 @@ Pbudpack
 Z0 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z2 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-w1425070108
+w1425166483
 Z3 dC:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source
 8C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/budpack.vhd
 FC:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/budpack.vhd
 l0
 L5
-VEYC[hY^MLI]dzXL94Zz7_3
-!s100 K;VDCTRO5D=I3n@6eiS;Z2
+VKj`CFllT1L54lfj5iiYbD2
+!s100 0k2j[:M6W4`9^_c`FbTfc2
 Z4 OV;C;10.3c;59
 31
-Z5 !s110 1425147640
+!s110 1425167512
 !i10b 1
-!s108 1425147640.132000
+!s108 1425167512.292000
 !s90 -reportprogress|300|-work|work|-93|-explicit|-check_synthesis|C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/budpack.vhd|
 !s107 C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/budpack.vhd|
 !i113 1
-Z6 o-work work -93 -explicit -check_synthesis
-Z7 tExplicit 1
+Z5 o-work work -93 -explicit -check_synthesis
+Z6 tExplicit 1
 Edown_marker
-Z8 w1425151571
-Z9 DPx4 work 7 budpack 0 22 EYC[hY^MLI]dzXL94Zz7_3
+Z7 w1425176345
+Z8 DPx4 work 7 budpack 0 22 Kj`CFllT1L54lfj5iiYbD2
 R0
 R1
 R2
 R3
-Z10 8C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/downmarker.vhd
-Z11 FC:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/downmarker.vhd
+Z9 8C:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\downmarker.vhd
+Z10 FC:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\downmarker.vhd
 l0
 L7
-Vm?XoD]5YI?cXc[nlj:lN:3
-!s100 R`TKjUz>o51VblGlBaa;L0
+VS]jmdDh`_<a41`keTmJzD3
+!s100 gAS<jT1mY4?aoBC9RY8YO2
 R4
 31
-Z12 !s110 1425151580
+Z11 !s110 1425176359
 !i10b 1
-Z13 !s108 1425151580.183000
-Z14 !s90 -reportprogress|300|-work|work|-93|-explicit|-check_synthesis|-stats=none|C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/downmarker.vhd|
-Z15 !s107 C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/downmarker.vhd|
+Z12 !s108 1425176359.282000
+Z13 !s90 -reportprogress|300|-work|work|-93|-explicit|-check_synthesis|-stats=none|C:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\downmarker.vhd|
+Z14 !s107 C:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\downmarker.vhd|
 !i113 1
+R5
 R6
-R7
 Asynth_dmark
-R9
+R8
 R0
 R1
 R2
-Z16 DEx4 work 11 down_marker 0 22 m?XoD]5YI?cXc[nlj:lN:3
-l60
-L25
-V2IK<^L<D`P0B0cHna^XKg1
-!s100 ca7BG9`LcVdeY>>9ezdli2
+Z15 DEx4 work 11 down_marker 0 22 S]jmdDh`_<a41`keTmJzD3
+l64
+L27
+VeD6>D2:XOgF:I;3a@k01L1
+!s100 RYlQd0:Jm[cIl]BO[Fb^i1
 R4
 31
-R12
+R11
 !i10b 1
+R12
 R13
 R14
-R15
 !i113 1
+R5
 R6
-R7
-Elocator
-Z17 w1425146802
-R9
+Efree_info
+Z16 w1425172916
+R8
 R0
 R1
 R2
 R3
-Z18 8C:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\search.vhd
-Z19 FC:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\search.vhd
+Z17 8C:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\free_info.vhd
+Z18 FC:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\free_info.vhd
+l0
+L7
+VG]4OeCPi9>0O3ZMP2gPON3
+!s100 4T_9[Wd0X@iE;:QT]^c`m3
+R4
+31
+Z19 !s110 1425172919
+!i10b 1
+Z20 !s108 1425172919.147000
+Z21 !s90 -reportprogress|300|-work|work|-93|-explicit|-check_synthesis|-stats=none|C:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\free_info.vhd|
+Z22 !s107 C:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\free_info.vhd|
+!i113 1
+R5
+R6
+Asynth_free_info
+R8
+R0
+R1
+R2
+Z23 DEx4 work 9 free_info 0 22 G]4OeCPi9>0O3ZMP2gPON3
+l39
+L22
+VO5k:lfSg1[Gfl3aK]<AUG0
+!s100 ?3<l1R_WBO9Y;<59<EGDh1
+R4
+31
+R19
+!i10b 1
+R20
+R21
+R22
+!i113 1
+R5
+R6
+Elocator
+Z24 w1425166528
+R8
+R0
+R1
+R2
+R3
+Z25 8C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/search.vhd
+Z26 FC:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/search.vhd
 l0
 L7
 VeklOJaA<1BldFM:Hh<NW]1
 !s100 H<ki<fEl:iR2^UT45SfJC0
 R4
 31
-Z20 !s110 1425147639
+Z27 !s110 1425167511
 !i10b 1
-Z21 !s108 1425147639.585000
-Z22 !s90 -reportprogress|300|-work|work|-93|-explicit|-check_synthesis|C:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\search.vhd|
-Z23 !s107 C:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\search.vhd|
+Z28 !s108 1425167511.746000
+Z29 !s90 -reportprogress|300|-work|work|-93|-explicit|-check_synthesis|C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/search.vhd|
+Z30 !s107 C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/search.vhd|
 !i113 1
+R5
 R6
-R7
 Asynth_locator
-R9
+R8
 R0
 R1
 R2
-Z24 DEx4 work 7 locator 0 22 eklOJaA<1BldFM:Hh<NW]1
+Z31 DEx4 work 7 locator 0 22 eklOJaA<1BldFM:Hh<NW]1
 l39
 L23
-V3SzdbR4F@fz9ObS<kk6bo2
-!s100 dE3dLmin=8bL02^ZI8COz3
+V>1PbO_lV;X3j:iXWL^jh[2
+!s100 :6Wj^m>LB0:NQaDOc33<M3
 R4
 31
-R20
+R27
 !i10b 1
-R21
-R22
-R23
+R28
+R29
+R30
 !i113 1
+R5
 R6
-R7
 Eram
-Z25 w1424942856
+Z32 w1425166514
 R0
 R1
 R2
 R3
-Z26 8C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/ram.vhd
-Z27 FC:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/ram.vhd
+Z33 8C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/ram.vhd
+Z34 FC:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/ram.vhd
 l0
 L5
 V;3k[VP_QeIQQJnAe]cjn62
 !s100 1T>8S:2A3d0n<5fz8<DAM2
 R4
 31
-R20
+R27
 !i10b 1
-Z28 !s108 1425147639.048000
-Z29 !s90 -reportprogress|300|-work|work|-93|-explicit|-check_synthesis|C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/ram.vhd|
-Z30 !s107 C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/ram.vhd|
+Z35 !s108 1425167511.218000
+Z36 !s90 -reportprogress|300|-work|work|-93|-explicit|-check_synthesis|C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/ram.vhd|
+Z37 !s107 C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/ram.vhd|
 !i113 1
+R5
 R6
-R7
 Aram0
 R0
 R1
 R2
-Z31 DEx4 work 3 ram 0 22 ;3k[VP_QeIQQJnAe]cjn62
+Z38 DEx4 work 3 ram 0 22 ;3k[VP_QeIQQJnAe]cjn62
 l20
 L15
 VMcz]?^gQkY88K5NJigIlj1
 !s100 gRacRdO_`0?0]5a0MX]<f1
 R4
 31
-R20
+R27
 !i10b 1
-R28
-R29
-R30
+R35
+R36
+R37
 !i113 1
+R5
 R6
-R7
 Erbuddy_top
-Z32 w1425147626
-R9
+Z39 w1425173894
+R8
 R0
 R1
 R2
 R3
-Z33 8C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/rbuddy_top.vhd
-Z34 FC:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/rbuddy_top.vhd
+Z40 8C:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\rbuddy_top.vhd
+Z41 FC:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\rbuddy_top.vhd
 l0
 L11
 VZI<N8_iaUAKgH4kA40WAL0
 !s100 Xdb5^B]I0B73Bzdj41mV63
 R4
 31
-R5
+Z42 !s110 1425173896
 !i10b 1
-Z35 !s108 1425147640.795000
-Z36 !s90 -reportprogress|300|-work|work|-93|-explicit|-check_synthesis|C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/rbuddy_top.vhd|
-Z37 !s107 C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/rbuddy_top.vhd|
+Z43 !s108 1425173896.727000
+Z44 !s90 -reportprogress|300|-work|work|-93|-explicit|-check_synthesis|-stats=none|C:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\rbuddy_top.vhd|
+Z45 !s107 C:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\rbuddy_top.vhd|
 !i113 1
+R5
 R6
-R7
 Asynth
-Z38 DEx4 work 9 up_marker 0 22 aaoIQ8[Z@SiN02NlZ9DhT1
-R16
-R24
+R23
+Z46 DEx4 work 9 up_marker 0 22 aaoIQ8[Z@SiN02NlZ9DhT1
+R15
 R31
-R9
+R38
+R8
 R0
 R1
 R2
-Z39 DEx4 work 10 rbuddy_top 0 22 ZI<N8_iaUAKgH4kA40WAL0
-l75
+Z47 DEx4 work 10 rbuddy_top 0 22 ZI<N8_iaUAKgH4kA40WAL0
+l85
 L24
-Va>WgS6]4GOfVj0LDil9R[2
-!s100 8Q>ZX^d;O?@RRmBMd2_8Y2
+VM8;jhVd8iSHzln7QaPJeP2
+!s100 ZbOQSM<3^XQ_6N6cAK`d;0
 R4
 31
-R5
+R42
 !i10b 1
-R35
-R36
-R37
+R43
+R44
+R45
 !i113 1
+R5
 R6
-R7
 Etb
-Z40 w1425147465
+Z48 w1425176098
 R0
 R1
 R2
 R3
-Z41 8C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/testbench.vhd
-Z42 FC:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/testbench.vhd
+Z49 8C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/testbench.vhd
+Z50 FC:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/testbench.vhd
 l0
 L6
 V[nb27lUY@fY7A>3[:Dc[P3
 !s100 `BzH]nY9mXcAZe>WAG2Ve2
 R4
 31
-Z43 !s110 1425147641
+Z51 !s110 1425176102
 !i10b 1
-Z44 !s108 1425147641.390000
-Z45 !s90 -reportprogress|300|-work|work|-93|-explicit|-check_synthesis|C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/testbench.vhd|
-Z46 !s107 C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/testbench.vhd|
+Z52 !s108 1425176102.288000
+Z53 !s90 -reportprogress|300|-work|work|-93|-explicit|-check_synthesis|-stats=none|C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/testbench.vhd|
+Z54 !s107 C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/testbench.vhd|
 !i113 1
+R5
 R6
-R7
 Abehav
-R9
-R39
+R8
+R47
 R0
 R1
 R2
 DEx4 work 2 tb 0 22 [nb27lUY@fY7A>3[:Dc[P3
 l18
 L9
-V6>IGAJnL15??Q>Ih[HMi_2
-!s100 P5Slokk;aHG8i2Gb<_FmY3
+V@oG0SKEzj7hRlADoM3<N@1
+!s100 V6@I6[A`olkWoM3DF^WcK2
 R4
 31
-R43
+R51
 !i10b 1
-R44
-R45
-R46
+R52
+R53
+R54
 !i113 1
+R5
 R6
-R7
 Eup_marker
-Z47 w1425143591
-R9
+Z55 w1425166544
+R8
 R0
 R1
 R2
 R3
-Z48 8C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/upmarker.vhd
-Z49 FC:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/upmarker.vhd
+Z56 8C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/upmarker.vhd
+Z57 FC:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/upmarker.vhd
 l0
 L7
 VaaoIQ8[Z@SiN02NlZ9DhT1
 !s100 AOSbA60fe=o0:aM3ehBOc0
 R4
 31
-R43
+Z58 !s110 1425167513
 !i10b 1
-Z50 !s108 1425147641.945000
-Z51 !s90 -reportprogress|300|-work|work|-93|-explicit|-check_synthesis|C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/upmarker.vhd|
-Z52 !s107 C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/upmarker.vhd|
+Z59 !s108 1425167513.527000
+Z60 !s90 -reportprogress|300|-work|work|-93|-explicit|-check_synthesis|C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/upmarker.vhd|
+Z61 !s107 C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/upmarker.vhd|
 !i113 1
+R5
 R6
-R7
 Asynth_umark
-R9
+R8
 R0
 R1
 R2
-R38
+R46
 l35
 L22
-VXCh5CzziH=F;VM`mlaYJR1
-!s100 ld@^0bJ6GQ;0ibW9Yz1;d3
+VTml1UzT2=YULY8Y_YmCzl2
+!s100 :S7R<?Qe`XXnb^ePkSK6T0
 R4
 31
-R43
+R58
 !i10b 1
-R50
-R51
-R52
+R59
+R60
+R61
 !i113 1
+R5
 R6
-R7

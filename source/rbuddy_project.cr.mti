@@ -1,7 +1,5 @@
-C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/testbench.vhd {1 {vcom -work work -93 -explicit -check_synthesis C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/testbench.vhd
+C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/testbench.vhd {1 {vcom -work work -93 -explicit -check_synthesis -stats=none C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/testbench.vhd
 Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
-Start time: 18:20:41 on Feb 28,2015
-vcom -reportprogress 300 -work work -93 -explicit -check_synthesis C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/testbench.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
@@ -10,13 +8,9 @@ vcom -reportprogress 300 -work work -93 -explicit -check_synthesis C:/Users/Hild
 -- Compiling architecture behav of tb
 -- Loading package budpack
 -- Loading entity rbuddy_top
-End time: 18:20:41 on Feb 28,2015, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
 
-} {} {}} C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/rbuddy_top.vhd {1 {vcom -work work -93 -explicit -check_synthesis C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/rbuddy_top.vhd
+} {} {}} C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/rbuddy_top.vhd {1 {vcom -work work -93 -explicit -check_synthesis -stats=none {C:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\rbuddy_top.vhd}
 Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
-Start time: 18:20:40 on Feb 28,2015
-vcom -reportprogress 300 -work work -93 -explicit -check_synthesis C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/rbuddy_top.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
@@ -28,14 +22,11 @@ vcom -reportprogress 300 -work work -93 -explicit -check_synthesis C:/Users/Hild
 -- Loading entity locator
 -- Loading entity down_marker
 -- Loading entity up_marker
-** Warning: C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/rbuddy_top.vhd(200): (vcom-1400) Synthesis Warning: Signal "flag_markup" is read in the process but is not in the sensitivity list.
-
-End time: 18:20:41 on Feb 28,2015, Elapsed time: 0:00:01
-Errors: 0, Warnings: 1
+-- Loading entity free_info
 
 } {} {}} C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/ram.vhd {1 {vcom -work work -93 -explicit -check_synthesis C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/ram.vhd
 Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
-Start time: 18:20:39 on Feb 28,2015
+Start time: 23:51:51 on Feb 28,2015
 vcom -reportprogress 300 -work work -93 -explicit -check_synthesis C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/ram.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -43,13 +34,23 @@ vcom -reportprogress 300 -work work -93 -explicit -check_synthesis C:/Users/Hild
 -- Loading package NUMERIC_STD
 -- Compiling entity ram
 -- Compiling architecture ram0 of ram
-End time: 18:20:39 on Feb 28,2015, Elapsed time: 0:00:00
+End time: 23:51:51 on Feb 28,2015, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0
 
-} {} {}} C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/search.vhd {1 {vcom -work work -93 -explicit -check_synthesis {C:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\search.vhd}
+} {} {}} C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/free_info.vhd {1 {vcom -work work -93 -explicit -check_synthesis -stats=none {C:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\free_info.vhd}
 Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
-Start time: 18:20:39 on Feb 28,2015
-vcom -reportprogress 300 -work work -93 -explicit -check_synthesis C:\Users\Hilda\Documents\GitHub\RAM-Buddy-VHDL\source\search.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package budpack
+-- Compiling entity free_info
+-- Compiling architecture synth_free_info of free_info
+
+} {} {}} C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/search.vhd {1 {vcom -work work -93 -explicit -check_synthesis C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/search.vhd
+Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
+Start time: 23:51:51 on Feb 28,2015
+vcom -reportprogress 300 -work work -93 -explicit -check_synthesis C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/search.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
@@ -57,24 +58,24 @@ vcom -reportprogress 300 -work work -93 -explicit -check_synthesis C:\Users\Hild
 -- Loading package budpack
 -- Compiling entity locator
 -- Compiling architecture synth_locator of locator
-End time: 18:20:40 on Feb 28,2015, Elapsed time: 0:00:01
+End time: 23:51:52 on Feb 28,2015, Elapsed time: 0:00:01
 Errors: 0, Warnings: 0
 
 } {} {}} C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/budpack.vhd {1 {vcom -work work -93 -explicit -check_synthesis C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/budpack.vhd
 Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
-Start time: 18:20:40 on Feb 28,2015
+Start time: 23:51:52 on Feb 28,2015
 vcom -reportprogress 300 -work work -93 -explicit -check_synthesis C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/budpack.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
 -- Compiling package budpack
-End time: 18:20:40 on Feb 28,2015, Elapsed time: 0:00:00
+End time: 23:51:52 on Feb 28,2015, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0
 
 } {} {}} C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/upmarker.vhd {1 {vcom -work work -93 -explicit -check_synthesis C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/upmarker.vhd
 Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
-Start time: 18:20:41 on Feb 28,2015
+Start time: 23:51:53 on Feb 28,2015
 vcom -reportprogress 300 -work work -93 -explicit -check_synthesis C:/Users/Hilda/Documents/GitHub/RAM-Buddy-VHDL/source/upmarker.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -83,7 +84,7 @@ vcom -reportprogress 300 -work work -93 -explicit -check_synthesis C:/Users/Hild
 -- Loading package budpack
 -- Compiling entity up_marker
 -- Compiling architecture synth_umark of up_marker
-End time: 18:20:42 on Feb 28,2015, Elapsed time: 0:00:01
+End time: 23:51:54 on Feb 28,2015, Elapsed time: 0:00:01
 Errors: 0, Warnings: 0
 
 } {} {}}

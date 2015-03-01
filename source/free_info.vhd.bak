@@ -14,7 +14,7 @@ ENTITY free_info IS
     probe_out             : out  tree_probe;
     done_bit              : OUT std_logic;
     top_node_size_out     : OUT std_logic_vector(31 DOWNTO 0);
-    log2top_node_size_out : OUT std_logic_vector(6 DOWNTO 0);
+    log2top_node_size_out : OUT std_logic_vector(31 DOWNTO 0);
     group_addr_out        : OUT std_logic_vector(31 DOWNTO 0)
     );
 END ENTITY free_info;
@@ -24,11 +24,11 @@ ARCHITECTURE synth_free_info OF free_info IS
   ALIAS slv IS std_logic_vector;
   ALIAS usgn IS unsigned;
 
-  TYPE StateType IS (idle, s0, s1, capture, done);
+  TYPE StateType IS (idle, s0, s1, done);
   SIGNAL state, nstate : StateType;
 
   SIGNAL top_node_size     : usgn(31 DOWNTO 0);
-  SIGNAL log2top_node_size : usgn(6 DOWNTO 0);
+  SIGNAL log2top_node_size : usgn(31 DOWNTO 0);
   SIGNAL verti             : usgn(31 DOWNTO 0);
   SIGNAL horiz             : usgn(31 DOWNTO 0);
   SIGNAL rowbase           : usgn(31 DOWNTO 0);
@@ -51,11 +51,10 @@ BEGIN
           nstate <= s0;
         END IF;
       WHEN s0 => nstate <= s0;
-      WHEN s1 => nstate <= capture;
-	  when capture => nstate <= done;
+      WHEN s1 => nstate <= done;
       WHEN done =>
         nstate   <= idle;
-		done_bit <= '1';
+        done_bit <= '1';
       WHEN OTHERS => NULL;
     END CASE;
     
@@ -74,7 +73,7 @@ variable rowbase_var : usgn(31 downto 0);
     ELSE
 
       IF state = idle THEN              -- initialise
-       
+        
         top_node_size     <= usgn(TOTAL_MEM_BLOCKS);
         log2top_node_size <= usgn(LOG2TMB);
         verti             <= (OTHERS => '0');
@@ -86,7 +85,6 @@ variable rowbase_var : usgn(31 downto 0);
       END IF;
 
       IF state = s0 THEN
-
         state                     <= s1;
         IF to_integer(usgn(size)) <= to_integer(top_node_size SRL 4) THEN
           state             <= nstate;
@@ -113,10 +111,12 @@ variable rowbase_var : usgn(31 downto 0);
         rowbase_var := rowbase + (to_unsigned(1, rowbase'length) SLL (to_integer(3 * (verti - 1))));
         group_addr  <= rowbase_var + horiz;
       END IF;  -- end state = s1
-	  
-	  if state = capture then 
 
-	    probe_out.verti       <= slv(verti);
+    END IF;  -- end reset
+    
+  END PROCESS;
+
+  probe_out.verti       <= slv(verti);
   probe_out.horiz       <= slv(horiz);
   probe_out.nodesel     <= slv(nodesel);
   probe_out.rowbase     <= slv(rowbase);
@@ -125,13 +125,6 @@ variable rowbase_var : usgn(31 downto 0);
   top_node_size_out     <= slv(top_node_size);
   log2top_node_size_out <= slv(log2top_node_size);
   group_addr_out        <= slv(group_addr);
-	  
-	  end if;
-
-    END IF;  -- end reset
-    
-  END PROCESS;
-
-
+  
 
 END ARCHITECTURE;
