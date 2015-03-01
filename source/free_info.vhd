@@ -11,7 +11,7 @@ ENTITY free_info IS
     start                 : IN  std_logic;
     address               : IN  std_logic_vector(31 DOWNTO 0);
     size                  : IN  std_logic_vector(31 DOWNTO 0);
-    probe_out             : out  tree_probe;
+    probe_out             : OUT tree_probe;
     done_bit              : OUT std_logic;
     top_node_size_out     : OUT std_logic_vector(31 DOWNTO 0);
     log2top_node_size_out : OUT std_logic_vector(6 DOWNTO 0);
@@ -50,19 +50,19 @@ BEGIN
         IF start = '1' THEN
           nstate <= s0;
         END IF;
-      WHEN s0 => nstate <= s0;
-      WHEN s1 => nstate <= capture;
-	  when capture => nstate <= done;
+      WHEN s0      => nstate <= s0;
+      WHEN s1      => nstate <= capture;
+      WHEN capture => nstate <= done;
       WHEN done =>
         nstate   <= idle;
-		done_bit <= '1';
+        done_bit <= '1';
       WHEN OTHERS => NULL;
     END CASE;
     
   END PROCESS;
 
   p1 : PROCESS
-variable rowbase_var : usgn(31 downto 0);
+    VARIABLE rowbase_var : usgn(31 DOWNTO 0);
 
   BEGIN
     WAIT UNTIL clk'event AND clk = '1';
@@ -74,7 +74,7 @@ variable rowbase_var : usgn(31 downto 0);
     ELSE
 
       IF state = idle THEN              -- initialise
-       
+        
         top_node_size     <= usgn(TOTAL_MEM_BLOCKS);
         log2top_node_size <= usgn(LOG2TMB);
         verti             <= (OTHERS => '0');
@@ -102,31 +102,31 @@ variable rowbase_var : usgn(31 downto 0);
       IF state = s1 THEN
         horiz <= usgn(address) SRL to_integer(log2top_node_size);
 
-        nodesel <= resize(usgn(address(to_integer(log2top_node_size - 1) DOWNTO 0)), nodesel'length) SRL to_integer(log2top_node_size - 3);
+        nodesel <= resize(usgn(address(to_integer(log2top_node_size - 1) DOWNTO 0)) SRL to_integer(log2top_node_size - 3), nodesel'length);
         IF to_integer(top_node_size) = 2 THEN
-          nodesel <= resize(usgn(address(1 downto 1)), nodesel'length);
+          nodesel <= resize(usgn(address(1 DOWNTO 1)), nodesel'length);
           alvec   <= '1';
         ELSIF to_integer(top_node_size) = 4 THEN
-          nodesel <= resize(usgn(address(1 DOWNTO 0)), nodesel'length) SLL 1;
+          nodesel <= resize(usgn(address(1 DOWNTO 0)) SLL 1, nodesel'length);
         END IF;
 
         rowbase_var := rowbase + (to_unsigned(1, rowbase'length) SLL (to_integer(3 * (verti - 1))));
         group_addr  <= rowbase_var + horiz;
       END IF;  -- end state = s1
-	  
-	  if state = capture then 
 
-	    probe_out.verti       <= slv(verti);
-  probe_out.horiz       <= slv(horiz);
-  probe_out.nodesel     <= slv(nodesel);
-  probe_out.rowbase     <= slv(rowbase);
-  probe_out.saddr       <= address;
-  probe_out.alvec       <= alvec;
-  top_node_size_out     <= slv(top_node_size);
-  log2top_node_size_out <= slv(log2top_node_size);
-  group_addr_out        <= slv(group_addr);
-	  
-	  end if;
+      IF state = capture THEN
+
+        probe_out.verti       <= slv(verti);
+        probe_out.horiz       <= slv(horiz);
+        probe_out.nodesel     <= slv(nodesel);
+        probe_out.rowbase     <= slv(rowbase);
+        probe_out.saddr       <= address;
+        probe_out.alvec       <= alvec;
+        top_node_size_out     <= slv(top_node_size);
+        log2top_node_size_out <= slv(log2top_node_size);
+        group_addr_out        <= slv(group_addr);
+        
+      END IF;
 
     END IF;  -- end reset
     

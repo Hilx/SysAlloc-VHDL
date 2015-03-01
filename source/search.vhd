@@ -34,8 +34,8 @@ ARCHITECTURE synth_locator OF locator IS
   SIGNAL cur                      : tree_probe;
   SIGNAL gen                      : tree_probe;
   SIGNAL gen_direction, direction : std_logic;  -- DOWN = 0, UP = 1 
+  SIGNAL local_and_tree           : std_logic_vector(14 DOWNTO 0);
 
-  SIGNAL FLAG_ELSE, FLAG_HERE : std_logic;
 BEGIN
 
   P0 : PROCESS(state, start, search_status)
@@ -79,9 +79,6 @@ BEGIN
     VARIABLE nodesel_var    : slv(2 DOWNTO 0);
   BEGIN
     WAIT UNTIL clk'event AND clk = '1';
-
-    FLAG_ELSE <= '0';
-    FLAG_HERE <= '0';
 
     IF reset = '0' THEN                 -- active low
       state <= idle;
@@ -171,14 +168,11 @@ BEGIN
                 nodesel_var(0) := mtree_var(27);
               WHEN OTHERS => NULL;
             END CASE;
-
-
             ----------------------------------------------
-
             -- flag_found = 1
             gen.verti <= slv(usgn(cur.verti) + 1);
             gen.horiz <= slv((usgn(cur.horiz) SLL 3) + usgn(nodesel_var));
-            gen.saddr <= slv(usgn(cur.saddr) + resize(usgn(nodesel_var), 32) SLL to_integer(usgn(log2top_node_size) - 3));
+            gen.saddr <= slv(usgn(cur.saddr) + (resize(usgn(nodesel_var), 32) SLL to_integer(usgn(log2top_node_size) - 3)));
 
             IF to_integer(usgn(top_node_size) SRL 4) = 1 THEN
               gen.alvec <= '1';
@@ -195,7 +189,7 @@ BEGIN
               gen.horiz     <= slv(usgn(cur.horiz) SRL 3);
               gen_direction <= '1';     -- go up
               nodesel_var   := slv(resize(usgn(cur.horiz(2 DOWNTO 0)), gen.nodesel'length));
-              gen.saddr     <= slv(usgn(cur.saddr) - resize(usgn(cur.nodesel), 32) SLL to_integer(usgn(log2top_node_size)));
+              gen.saddr     <= slv(usgn(cur.saddr) - (resize(usgn(cur.nodesel), 32) SLL to_integer(usgn(log2top_node_size))));
             END IF;
 
           END IF;
@@ -241,27 +235,25 @@ BEGIN
               IF flag_found_var = '1' THEN
 
                 ------------------------ find starting address
-                nodesel_var(2) := mtree(3);
+                nodesel_var(2) := local_and_tree(1);
                 ns_var         := nodesel_var(2);
                 IF ns_var = '0' THEN
-                  nodesel_var(1) := mtree(7);
+                  nodesel_var(1) := local_and_tree(3);
                 ELSE
-                  nodesel_var(1) := mtree(11);
+                  nodesel_var(1) := local_and_tree(5);
                 END IF;
                 ns_var2 := nodesel_var(2 DOWNTO 1);
                 CASE ns_var2 IS
                   WHEN "00" =>
-                    nodesel_var(0) := mtree(15);
+                    nodesel_var(0) := local_and_tree(7);
                   WHEN "01" =>
-                    nodesel_var(0) := mtree(19);
+                    nodesel_var(0) := local_and_tree(9);
                   WHEN "10" =>
-                    nodesel_var(0) := mtree(23);
+                    nodesel_var(0) := local_and_tree(11);
                   WHEN "11" =>
-                    nodesel_var(0) := mtree(27);
+                    nodesel_var(0) := local_and_tree(13);
                   WHEN OTHERS => NULL;
                 END CASE;
-
-
               ----------------------------------------------
               END IF;
               
@@ -279,15 +271,14 @@ BEGIN
               IF flag_found_var = '1' THEN
 
                 ------------------------ find starting address
-                nodesel_var(2) := mtree(3);
+                nodesel_var(2) := local_and_tree(1);
                 ns_var         := nodesel_var(2);
                 IF ns_var = '0' THEN
-                  nodesel_var(1) := mtree(7);
+                  nodesel_var(1) := local_and_tree(3);
                 ELSE
-                  nodesel_var(1) := mtree(11);
+                  nodesel_var(1) := local_and_tree(5);
                 END IF;
                 nodesel_var(0) := '0';
-
                 ----------------------------------------------
 
               END IF;
@@ -304,11 +295,10 @@ BEGIN
               IF flag_found_var = '1' THEN
 
                 ------------------------ find starting address
-                nodesel_var(2) := mtree(3);
+                nodesel_var(2) := local_and_tree(1);
                 nodesel_var(1) := '0';
                 nodesel_var(0) := '0';
-
-                ----------------------------------------------                    
+                ----------------------------------------------                 
                 
               END IF;
               
@@ -340,12 +330,11 @@ BEGIN
                 gen.saddr <= slv(usgn(cur.saddr) + (usgn(nodesel_var) SRL 1));  -- gen.nodesel?
                 
               ELSE
-                gen.saddr <= slv(usgn(cur.saddr) + (usgn(nodesel_var) SLL to_integer(usgn(log2top_node_size) - 3)));  -- gen.nodesel?
+                gen.saddr <= slv(usgn(cur.saddr) + (resize(usgn(nodesel_var), gen.saddr'length) SLL to_integer(usgn(log2top_node_size) - 3)));  -- gen.nodesel?
                 
               END IF;
 
-            ELSE                        -- using alvec
-              
+            ELSE                        -- using alvec              
               gen.saddr <= slv(usgn(cur.saddr) + usgn(nodesel_var));
             END IF;
             
@@ -409,6 +398,28 @@ BEGIN
     utree <= mtree_var;
     
   END PROCESS;
+
+  p3 : PROCESS(mtree)
+    VARIABLE local_var : slv(14 DOWNTO 0);
+  BEGIN
+    
+    FOR i IN 0 TO 7 LOOP
+      local_var(i + 7) := mtree(2*i + 14);
+    END LOOP;
+
+    FOR i IN 0 TO 3 LOOP
+      local_var(i + 3) := local_var(7 + 2*i) AND local_var(8 + 2*i);
+    END LOOP;
+
+    FOR i IN 0 TO 1 LOOP
+      local_var(i + 1) := local_var(3 + 2*i) AND local_var(4 + 2*i);
+    END LOOP;
+
+    local_var(0) := local_var(1) AND local_var(2);
+
+    local_and_tree <= local_var;
+  END PROCESS;
+
 
   ram_addr  <= group_addr;
   probe_out <= gen;

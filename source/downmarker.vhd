@@ -29,7 +29,7 @@ ARCHITECTURE synth_dmark OF down_marker IS
   ALIAS slv IS std_logic_vector;
   ALIAS usgn IS unsigned;
 
-  TYPE StateType IS (idle, prep, s0, s_read, s_mark, s_w0, s_w1, done, store, update);
+  TYPE StateType IS (idle, prep, s0, s_read, s_mark, s_w0, s_w1, done, store, update, w_wait);
   SIGNAL state, nstate : StateType;
 
   SIGNAL top_node_size     : std_logic_vector(31 DOWNTO 0);
@@ -47,20 +47,10 @@ ARCHITECTURE synth_dmark OF down_marker IS
 
   -- free related
   TYPE holder_array IS ARRAY (0 TO MAX_TREE_DEPTH) OF holder_type;
-  SIGNAL holder                : holder_array;
-  SIGNAL index                 : std_logic_vector(5 DOWNTO 0);
-  SIGNAL effective_node        : std_logic_vector(1 DOWNTO 0);
-  SIGNAL flag_free_first_write : std_logic;
-  SIGNAL flag_stop             : std_logic;
+  SIGNAL holder         : holder_array;
+  SIGNAL index          : std_logic_vector(5 DOWNTO 0);
+  SIGNAL effective_node : std_logic_vector(1 DOWNTO 0);
 
-
--- debugging
-  SIGNAL offset_debug    : std_logic_vector(2 DOWNTO 0);
-  SIGNAL step_debug      : std_logic_vector(2 DOWNTO 0);  -- 8 possible nodes to mark
-  SIGNAL size_left_debug : slv(31 DOWNTO 0);
-
-
-  SIGNAL FLAG_HERE : std_logic;
 BEGIN
 
   p0 : PROCESS(state, start, size_left, flag_alloc)
@@ -89,14 +79,17 @@ BEGIN
       WHEN s_w1 =>
         
         IF flag_alloc = '1' THEN        -- when allocating
-          nstate <= s0;
+          nstate <= w_wait;
           IF to_integer(usgn(size_left)) = 0 THEN
             nstate <= done;
           END IF;
         ELSE                            -- when free
           nstate <= update;
+          
         END IF;
         
+      WHEN w_wait => nstate <= s0;
+
       WHEN done =>
         nstate   <= idle;
         done_bit <= '1';
@@ -110,19 +103,18 @@ BEGIN
   END PROCESS;
 
   p1 : PROCESS
-    VARIABLE rowbase_var      : slv(31 DOWNTO 0);
-    VARIABLE step             : std_logic_vector(2 DOWNTO 0);  -- 8 possible nodes to mark
-    VARIABLE size_left_var    : slv(31 DOWNTO 0);
-    VARIABLE offset           : std_logic_vector(2 DOWNTO 0);
-    VARIABLE index_var        : integer RANGE 0 TO MAX_TREE_DEPTH;
-    VARIABLE update_start_bit : integer RANGE 0 TO 15;
-    VARIABLE mtree_var        : slv(31 DOWNTO 0);
+    VARIABLE rowbase_var         : slv(31 DOWNTO 0);
+    VARIABLE step                : std_logic_vector(4 DOWNTO 0);  -- 8 possible nodes to mark
+    VARIABLE size_left_var       : slv(31 DOWNTO 0);
+    VARIABLE offset              : std_logic_vector(2 DOWNTO 0);
+    VARIABLE index_var           : integer RANGE 0 TO MAX_TREE_DEPTH;
+    VARIABLE update_start_bit    : integer RANGE 0 TO 15;
+    VARIABLE mtree_var           : slv(31 DOWNTO 0);
+    VARIABLE last_write_ever_var : std_logic;
 
   BEGIN
     WAIT UNTIL clk'event AND clk = '1';
-    FLAG_HERE <= '0';
 
-    flag_stop <= '0';
     IF reset = '0' THEN                 -- active low
       state <= idle;
     ELSE
@@ -133,7 +125,6 @@ BEGIN
         size_left             <= reqsize;
         flag_first            <= '1';
         flag_markup           <= '0';
-        flag_free_first_write <= '1';
       END IF;
 
       IF state = s0 THEN
@@ -211,14 +202,14 @@ BEGIN
           size_left_var := (OTHERS => '0');
           size_left     <= size_left_var;
 
-        ELSE                            -- other topsize          
+        ELSE  -- other topsize                        
           
           step := slv(resize(usgn(size_left) SRL to_integer(usgn(log2top_node_size) - 3), step'length));
           FOR i IN 0 TO 15 LOOP
+
             -- if shift =< i < shift +step
             IF i >= to_integer(usgn(shift)) AND i < to_integer(usgn(shift) + (usgn(step) SLL 1)) THEN
               mtree(i + 14) <= flag_alloc;
-              
             END IF;
           END LOOP;
 
@@ -226,13 +217,8 @@ BEGIN
           size_left_var := slv(usgn(size_left) -(resize(usgn(step), size_left'length) SLL to_integer(usgn(log2top_node_size) - 3)));
           size_left     <= size_left_var;
 
-          step_debug      <= step;
-          size_left_debug <= size_left_var;
-
-
-
           IF to_integer(usgn(size_left_var)) /= 0 THEN
-            -- mtree(14 + shift + 2 * step) <= 1
+
             mtree(14 + to_integer(usgn(shift)) + to_integer(usgn(step) SLL 1)) <= flag_alloc;
           END IF;
           -- offset = shift/2 + step
@@ -244,9 +230,7 @@ BEGIN
           
           IF flag_alloc = '0' THEN
             state <= s_w0;
-
           END IF;
-
           
         ELSE
           
@@ -270,11 +254,10 @@ BEGIN
           index <= slv(resize(usgn(cur.verti), index'length));
         END IF;
 
-        offset_debug <= offset;
-        
       END IF;  -- finished case of s_mark
 
       IF state = s_w0 THEN
+
         -- write data
         IF gen.alvec = '0' THEN
           ram_data_in <= utree;
@@ -282,44 +265,9 @@ BEGIN
           ram_data_in <= mtree;
         END IF;
 
-        -- for free update stuff
-        IF flag_alloc = '0' THEN
-		
-          IF to_integer(usgn(index)) > 0 THEN
-            index_var := to_integer(usgn(index) - 1);
-            index     <= slv(to_unsigned(index_var, index'length));
-
-            update_start_bit := to_integer(usgn(holder(index_var).nodesel) SLL 1);
-
-
-            mtree_var                                              := holder(index_var).mtree;
-            mtree_var(update_start_bit +1 DOWNTO update_start_bit) := effective_node;
-
-            mtree <= mtree_var;
-          ELSE
-            flag_stop <= '1';
-          END IF;
-
-          IF gen.alvec = '1' THEN
-            effective_node <= mtree(alvec_sel+1 DOWNTO alvec_sel);
-			node_out <= mtree(alvec_sel+1 DOWNTO alvec_sel);
-          ELSE
-            effective_node <= utree(1 DOWNTO 0);
-			node_out <= mtree(alvec_sel+1 DOWNTO alvec_sel);
-          END IF;
-
---          IF flag_free_first_write = '1' THEN
-            
---           IF gen.alvec = '0' THEN
---             node_out <= utree(1 DOWNTO 0);
---            ELSE
- --             node_out <= mtree(alvec_sel + 1 DOWNTO 0);
- --           END IF;            
-            
-          END IF;
+        IF flag_alloc = '1' THEN  -- in case of malloc, decide if i need to mark upwards
           
-        ELSE  -- in case of malloc, decide if i need to mark upwards
-          IF cur.verti = probe_in.verti THEN
+          IF cur.verti = probe_in.verti AND to_integer(usgn(probe_in.verti)) > 0 THEN
             flag_markup <= '1';
             IF gen.alvec = '0' THEN
               node_out <= utree(1 DOWNTO 0);
@@ -331,52 +279,62 @@ BEGIN
               IF mtree(alvec_sel + 1 DOWNTO alvec_sel) = original_top_node THEN
                 flag_markup <= '0';
               END IF;
-              
             END IF;
-            
           END IF;
           
+        ELSE                            -- free
           
+          IF gen.alvec = '1' THEN
+            effective_node <= mtree(alvec_sel+1 DOWNTO alvec_sel);
+            node_out       <= mtree(alvec_sel+1 DOWNTO alvec_sel);
+          ELSE
+            effective_node <= utree(1 DOWNTO 0);
+            node_out       <= mtree(alvec_sel+1 DOWNTO alvec_sel);
+          END IF;
           
         END IF;
+        
       END IF;  -- finished case of s_w0
 
       ram_we <= '0';
       IF state = s_w1 THEN
+        
         ram_we <= '1';
-
-        cur <= gen;
+        cur    <= gen;
 
         -- free
         IF flag_alloc = '0' THEN
-          
-          IF to_integer(usgn(index)) < to_integer(usgn(probe_in.verti)) OR flag_stop = '1'THEN
+
+          IF (slv(resize(usgn(index), 32)) = slv(usgn(probe_in.verti))) THEN
             state <= done;
 
             flag_markup <= '1';
-		    IF effective_node = original_top_node OR flag_stop = '1' THEN
-                flag_markup <= '0';
+            IF effective_node = original_top_node THEN
+              flag_markup <= '0';
             END IF;
-			
-            --   IF gen.alvec = '0' THEN
-            IF flag_free_first_write = '0' THEN
-              group_addr <= holder(to_integer(usgn(index))).gaddr;
-              --  IF utree(1 DOWNTO 0) = original_top_node THEN
-        --      IF effective_node = original_top_node THEN
-         --       flag_markup <= '0';
-        --      END IF;
-            ELSE
-
-         --     IF effective_node = original_top_node OR flag_stop = '1' THEN
-         --       flag_markup <= '0';
-         --     END IF;
-              flag_free_first_write <= '0';
-              
-            END IF;
-          --   END IF;           
+            
           END IF;
-         
+          
+        END IF;
+        
       END IF;  -- finish case of s_w1
+
+      IF state = update THEN
+        
+        index_var := to_integer(usgn(index) - 1);
+        index     <= slv(to_unsigned(index_var, index'length));
+
+        update_start_bit := to_integer(usgn(holder(index_var).nodesel) SLL 1);
+
+        mtree_var                                              := holder(index_var).mtree;
+        mtree_var(update_start_bit +1 DOWNTO update_start_bit) := effective_node;
+
+        mtree <= mtree_var;
+
+        group_addr <= holder(index_var).gaddr;
+        
+      END IF;
+
 
       IF state = store THEN
         holder(to_integer(usgn(cur.verti))).mtree   <= utree;

@@ -77,11 +77,11 @@ ARCHITECTURE synth OF rbuddy_top IS
   SIGNAL start_log2top_node_size : std_logic_vector(6 DOWNTO 0);
 
   SIGNAL start_free_info     : std_logic;
-  SIGNAL free_info_probe_out  : tree_probe;
+  SIGNAL free_info_probe_out : tree_probe;
   SIGNAL free_info_done_bit  : std_logic;
-  SIGNAL free_tns             : std_logic_vector(31 DOWNTO 0);
+  SIGNAL free_tns            : std_logic_vector(31 DOWNTO 0);
   SIGNAL free_log2tns        : std_logic_vector(6 DOWNTO 0);
-  SIGNAL free_group_addr      : std_logic_vector(31 DOWNTO 0);
+  SIGNAL free_group_addr     : std_logic_vector(31 DOWNTO 0);
 BEGIN
 
   RAM0 : ENTITY ram
@@ -227,8 +227,8 @@ BEGIN
         IF flag_markup = '1' THEN
           nstate       <= upmark;
           start_upmark <= '1';
-			
-			
+
+
           upmark_start_probe <= search_done_probe;  -- malloc
           IF flag_alloc = '0' THEN                  -- free
             upmark_start_probe <= free_info_probe_out;
