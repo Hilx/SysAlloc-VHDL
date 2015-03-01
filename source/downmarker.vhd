@@ -12,8 +12,6 @@ ENTITY down_marker IS
     flag_alloc           : IN  std_logic;  -- 1 = alloc, 0 = free
     probe_in             : IN  tree_probe;
     reqsize              : IN  std_logic_vector(31 DOWNTO 0);
-    top_node_size_in     : IN  std_logic_vector(31 DOWNTO 0);
-    log2top_node_size_in : IN  std_logic_vector(6 DOWNTO 0);
     done_bit             : OUT std_logic;
     node_out             : OUT std_logic_vector(1 DOWNTO 0);
     flag_markup          : OUT std_logic;

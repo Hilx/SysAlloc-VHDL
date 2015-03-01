@@ -27,4 +27,4 @@ BEGIN
     END IF;
   END PROCESS;
   data_out <= myram(address);
-END ARCHITECTURE ram0;
+END ARCHITECTURE;

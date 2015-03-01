@@ -107,6 +107,7 @@ BEGIN
         ram_data_in <= utree;
       END IF;
 
+	  ram_we <= '0';
       IF state = s_w1 THEN
         ram_we <= '1';
 
