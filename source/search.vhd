@@ -258,7 +258,8 @@ BEGIN
               END IF;
               
               
-            ELSIF size <= slv(usgn(top_node_size) SRL 2) THEN  -- topsize /4              
+            ELSIF size <= slv(usgn(top_node_size) SRL 2) THEN  -- topsize /4     
+			 -- find the first OR bit in local depth = 2
 
               flag_found     <= '0';
               flag_found_var := '0';
@@ -271,19 +272,20 @@ BEGIN
               IF flag_found_var = '1' THEN
 
                 ------------------------ find starting address
-                nodesel_var(2) := local_and_tree(1);
+                nodesel_var(2) := mtree(6) and mtree(8);
                 ns_var         := nodesel_var(2);
                 IF ns_var = '0' THEN
-                  nodesel_var(1) := local_and_tree(3);
+                  nodesel_var(1) := mtree(6);
                 ELSE
-                  nodesel_var(1) := local_and_tree(5);
+                  nodesel_var(1) := mtree(10);
                 END IF;
                 nodesel_var(0) := '0';
                 ----------------------------------------------
 
               END IF;
               
-            ELSIF size <= slv(usgn(top_node_size) SRL 1) THEN  -- topsize/2
+            ELSIF size <= slv(usgn(top_node_size) SRL 1) THEN  -- topsize/2 
+			-- find the first OR bit in local depth = 1
               
               flag_found     <= '0';
               flag_found_var := '0';
@@ -295,7 +297,7 @@ BEGIN
               IF flag_found_var = '1' THEN
 
                 ------------------------ find starting address
-                nodesel_var(2) := local_and_tree(1);
+                nodesel_var(2) := mtree(2);
                 nodesel_var(1) := '0';
                 nodesel_var(0) := '0';
                 ----------------------------------------------                 
