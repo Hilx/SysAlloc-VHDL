@@ -58,6 +58,7 @@ BEGIN
 
   p1 : PROCESS
     VARIABLE rowbase_var : slv(31 DOWNTO 0);
+	variable log2top_node_size_var : integer range 0 to MAX_TREE_DEPTH;
   BEGIN
     WAIT UNTIL clk'event AND clk = '1';
 
@@ -68,7 +69,15 @@ BEGIN
     ELSE
       
       IF state = prep THEN
-        cur           <= probe_in;
+	  
+		log2top_node_size_var := to_integer( resize(usgn(LOG2TMB) - 3* (usgn(probe_in.verti)), log2top_node_size'length));
+		cur.verti <= slv( usgn(probe_in.verti) - 1);
+		cur.horiz <= slv( usgn(probe_in.horiz) srl 3);
+		cur.nodesel <= probe_in.horiz(2 downto 0);
+		cur.saddr <= slv(usgn(probe_in.saddr) - (  usgn(probe_in.nodesel) sll log2top_node_size_var));
+		cur.rowbase <= slv(usgn(probe_in.rowbase) + (to_unsigned(1, rowbase_var'length) SLL (to_integer(3*(usgn(probe_in.verti) - 1)))));
+		cur.alvec <= '0';				
+		
         flag_blocking <= '0';
       END IF;  -- end prep
 

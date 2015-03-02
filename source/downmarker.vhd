@@ -287,7 +287,7 @@ BEGIN
             node_out       <= mtree(alvec_sel+1 DOWNTO alvec_sel);
           ELSE
             effective_node <= utree(1 DOWNTO 0);
-            node_out       <= mtree(alvec_sel+1 DOWNTO alvec_sel);
+            node_out       <= utree(1 DOWNTO 0);
           END IF;
           
         END IF;

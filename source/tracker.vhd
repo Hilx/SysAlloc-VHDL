@@ -65,13 +65,14 @@ BEGIN
   END PROCESS;
 
   p1 : PROCESS
-    VARIABLE horiz_var       : usgn(31 DOWNTO 0);
+    VARIABLE rowbase_var       : usgn(31 DOWNTO 0);
     VARIABLE local_depth_var : usgn(6 DOWNTO 0);
 
   BEGIN
     WAIT UNTIL clk'event AND clk = '1';
 
     state <= nstate;
+	ram_we <= '0';
 	
     IF reset = '0' THEN                 -- active low
       state <= idle;
@@ -84,15 +85,18 @@ BEGIN
         verti             <= (OTHERS => '0');
         horiz             <= (OTHERS => '0');     
         rowbase           <= (OTHERS => '0');
+		
+
         
       END IF;
 
       IF state = s0 THEN
 	  
-	  		  func_sel_i <= func_sel;
-		  group_addr_i <= group_addr_in;
+		func_sel_i <= func_sel;
+		group_addr_i <= group_addr_in;	  
+
         
-        IF to_integer(usgn(size)) <= to_integer(top_node_size SRL 4) THEN
+        IF to_integer(usgn(size)) <= to_integer(top_node_size SRL 4) THEN -- size <= topsize/16
           state             <= nstate;
           verti             <= verti + 1;
           top_node_size     <= top_node_size SRL 3;
@@ -132,19 +136,27 @@ BEGIN
 
       IF state = probe_m THEN
         
-        probe_out.verti <= slv(verti);
+		probe_out.verti <= (others => '0');
+		probe_out.horiz <= (others => '0');
+		probe_out.saddr <= (others => '0');
+		probe_out.nodesel <= (others => '0');
+		probe_out.rowbase <= (others => '0');
+		probe_out.alvec <= '0';		
+		
+		if to_integer(usgn(ram_data_out)) > 0 then 
+			probe_out.verti <= slv(verti);
+			rowbase_var := rowbase +  (to_unsigned(1, rowbase'length) SLL (to_integer(3 * (verti - 1))));
+			probe_out.horiz <= slv(usgn(ram_data_out) - rowbase_var                             );
 
-        horiz_var       := usgn(ram_data_out) - rowbase;
-        probe_out.horiz <= slv(horiz_var);
+			probe_out.rowbase <= slv(rowbase);
+			probe_out.nodesel <= slv(horiz(2 DOWNTO 0));  -- nodesel = horiz % 8             
+			probe_out.saddr   <= slv(horiz SLL to_integer(log2top_node_size));
 
-        probe_out.rowbase <= slv(rowbase);
-        probe_out.nodesel <= slv(horiz(2 DOWNTO 0));  -- nodesel = horiz % 8             
-        probe_out.saddr   <= slv(horiz SLL to_integer(log2top_node_size));
-
-        probe_out.alvec <= '0';
-        IF to_integer(top_node_size) = 2 THEN
-          probe_out.alvec <= '1';
-        END IF;
+			probe_out.alvec <= '0';
+			IF to_integer(top_node_size) = 2 THEN
+			  probe_out.alvec <= '1';
+			END IF;
+		end if;
         
       END IF;
 

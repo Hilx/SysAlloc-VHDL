@@ -53,26 +53,26 @@ BEGIN
       command <= '0';
     END IF;
 
---    IF CtrCounter = 50 THEN
-  --    start   <= '1';
- --     -- address <= (others => '0');
- --     size    <= std_logic_vector(to_unsigned(4, size'length));
---      command <= '0';
- --   END IF;
+   IF CtrCounter = 50 THEN
+      start   <= '1';
+      -- address <= (others => '0');
+      size    <= std_logic_vector(to_unsigned(4, size'length));
+      command <= '0';
+    END IF;
 
- --   IF CtrCounter = 100 THEN
- --     start   <= '1';
---      address <= std_logic_vector(to_unsigned(140, size'length));
- --     size    <= std_logic_vector(to_unsigned(4, size'length));
- --     command <= '1';
- --   END IF;
+    IF CtrCounter = 100 THEN
+      start   <= '1';
+      address <= std_logic_vector(to_unsigned(140, size'length));
+      size    <= std_logic_vector(to_unsigned(4, size'length));
+      command <= '1';
+    END IF;
 
- --   IF CtrCounter = 150 THEN
- --     start   <= '1';
- --     address <= std_logic_vector(to_unsigned(0, size'length));
---      size    <= std_logic_vector(to_unsigned(137, size'length));
- --     command <= '1';
- --   END IF;
+    IF CtrCounter = 150 THEN
+      start   <= '1';
+      address <= std_logic_vector(to_unsigned(0, size'length));
+     size    <= std_logic_vector(to_unsigned(137, size'length));
+      command <= '1';
+    END IF;
 
 
 
