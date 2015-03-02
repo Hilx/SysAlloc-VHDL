@@ -235,23 +235,23 @@ BEGIN
               IF flag_found_var = '1' THEN
 
                 ------------------------ find starting address
-                nodesel_var(2) := local_and_tree(1);
+                nodesel_var(2) := mtree(14) and mtree(16) and mtree(18) and mtree(20);
                 ns_var         := nodesel_var(2);
                 IF ns_var = '0' THEN
-                  nodesel_var(1) := local_and_tree(3);
+                  nodesel_var(1) := mtree(14) and mtree(16);
                 ELSE
-                  nodesel_var(1) := local_and_tree(5);
+                  nodesel_var(1) := mtree(22) and mtree(24);
                 END IF;
                 ns_var2 := nodesel_var(2 DOWNTO 1);
                 CASE ns_var2 IS
                   WHEN "00" =>
-                    nodesel_var(0) := local_and_tree(7);
+                    nodesel_var(0) := mtree(14);
                   WHEN "01" =>
-                    nodesel_var(0) := local_and_tree(9);
+                    nodesel_var(0) := mtree(18);
                   WHEN "10" =>
-                    nodesel_var(0) := local_and_tree(11);
+                    nodesel_var(0) := mtree(22);
                   WHEN "11" =>
-                    nodesel_var(0) := local_and_tree(13);
+                    nodesel_var(0) := mtree(26);
                   WHEN OTHERS => NULL;
                 END CASE;
               ----------------------------------------------

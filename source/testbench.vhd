@@ -64,7 +64,7 @@ BEGIN
 
                  END IF;
 				 when s_w => nstate <= s2;
-				                    IF reqcount = 27 THEN
+				                    IF reqcount = 500 THEN
                      nstate <= done;
                    END IF;
       WHEN s2     => nstate <= s0;
@@ -94,7 +94,7 @@ BEGIN
       --size      <= slv(to_unsigned(data(reqcount).size, size'length));
      -- address   <= slv(to_unsigned(data(reqcount).address, address'length));
 	 command <= '0';
-	 size <= slv(to_unsigned(15,32));
+	 size <= slv(to_unsigned(reqcount,32));
 	 
     END IF;
 

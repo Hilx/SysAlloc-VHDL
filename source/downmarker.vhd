@@ -183,7 +183,7 @@ BEGIN
           
         ELSIF size_left < slv(usgn(top_node_size) SRL 3) THEN  -- reqsize < topsize/8
           
-          mtree(14)     <= flag_alloc;
+          mtree(14 + to_integer(usgn(shift)))     <= flag_alloc;
           size_left_var := size_left;
           
         ELSIF to_integer(usgn(top_node_size)) = 4 THEN  -- topsize = 4
