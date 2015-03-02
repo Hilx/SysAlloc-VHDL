@@ -2,7 +2,9 @@ LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
 USE work.ALL;
-use work.tb_data.all;
+USE work.tb_data.ALL;
+USE std.textio.ALL;                     --include package textio.vhd
+USE ieee.std_logic_textio.ALL;          -- if you're saving this type of signal
 
 ENTITY tb IS
 END ENTITY tb;
@@ -13,17 +15,20 @@ ARCHITECTURE behav OF tb IS
   ALIAS slv IS std_logic_vector;
   ALIAS usgn IS unsigned;
 
-type statetype is (idle, s0, s1, s2, done);
-signal state,nstate : statetype;
+  TYPE statetype IS (idle, s0, s1, s2, done,s_w);
+  SIGNAL state, nstate : statetype;
 
   SIGNAL clk, reset, start, command, done_bit : std_logic;
-  SIGNAL size                             : std_logic_vector(31 DOWNTO 0);
-  SIGNAL address                          : std_logic_vector(31 DOWNTO 0);
-  SIGNAL saddr                            : std_logic_vector(31 DOWNTO 0);
+  SIGNAL size                                 : std_logic_vector(31 DOWNTO 0);
+  SIGNAL address                              : std_logic_vector(31 DOWNTO 0);
+  SIGNAL saddr                                : std_logic_vector(31 DOWNTO 0);
 
-  SIGNAL CtrCounter : integer := 0;
-  signal reqcount : integer := 0;
-  signal req_index :integer;
+  SIGNAL CtrCounter : integer   := 0;
+  SIGNAL reqcount   : integer   := 0;
+  SIGNAL req_index  : integer;
+  SIGNAL endoffile  : std_logic := '0';
+
+  FILE outfile : text OPEN write_mode IS "result.txt";
 
 BEGIN
   Buddy_Allocator : ENTITY rbuddy_top
@@ -35,8 +40,8 @@ BEGIN
       size        => size,
       free_addr   => address,
       malloc_addr => saddr,
-	  done => done_bit
-	  );
+      done        => done_bit
+      );
 
   p1_clkgen : PROCESS
   BEGIN
@@ -45,27 +50,34 @@ BEGIN
     clk <= '1';
     WAIT FOR 50 ns;
   END PROCESS p1_clkgen;
-  
-  p0: process(state,done_bit,reqcount)
-  begin
-	nstate <= idle;
-	
-	case state is 
-	when idle => nstate <= s0;
-	when s0 => nstate <= s1; -- send req
-	when s1 => nstate <= s1;
-	if done_bit = '1' then 
-	nstate <= s2;
-	if reqcount = 7 then 
-	nstate <= done;	
-	end if;
-	end if;
-	when s2 => nstate <= s0;
-	when done => nstate <= done;
-	when others => null;
-	end case;
-end process;
+
+  p0 : PROCESS(state, done_bit, reqcount)
+  BEGIN
+    nstate <= idle;
+
+    CASE state IS
+      WHEN idle => nstate <= s0;
+      WHEN s0   => nstate <= s1;        -- send req
+      WHEN s1   => nstate <= s1;
+                 IF done_bit = '1' THEN
+                   nstate <= s_w;
+
+                 END IF;
+				 when s_w => nstate <= s2;
+				                    IF reqcount = 7 THEN
+                     nstate <= done;
+                   END IF;
+      WHEN s2     => nstate <= s0;
+      WHEN done   => nstate <= done;
+      WHEN OTHERS => NULL;
+    END CASE;
+  END PROCESS;
+
   reset_process : PROCESS
+
+    VARIABLE outline : line;
+    VARIABLE out_int : integer;
+    VARIABLE v_char  : character;
   BEGIN
 
     WAIT UNTIL clk'event AND clk = '1';
@@ -73,20 +85,37 @@ end process;
     CtrCounter <= CtrCounter + 1;
     start      <= '0';
 
-	state <= nstate;
-	
-	if state = s0 then 
-		req_index <= data(reqcount).req_index;
-		start <= '1';
-		command <= data(reqcount).command;
-		size <= slv(to_unsigned(data(reqcount).size,size'length));
-		address <= slv(to_unsigned(data(reqcount).address,address'length));
-	end if;
-	
-	if state = s2 then 
-	
-	reqcount <= reqcount + 1;
-	
+    state <= nstate;
+
+    IF state = s0 THEN
+      req_index <= data(reqcount).req_index;
+      start     <= '1';
+      command   <= data(reqcount).command;
+      size      <= slv(to_unsigned(data(reqcount).size, size'length));
+      address   <= slv(to_unsigned(data(reqcount).address, address'length));
+    END IF;
+
+    IF state = s_w THEN
+      IF(endoffile = '0') THEN
+        
+        IF command = '0' THEN           -- allotcation
+          write(outline, req_index);
+          write(outline, string'("has address"));
+          out_int := to_integer(usgn(saddr));
+          write(outline, out_int);
+          writeline(outfile, outline);
+        ELSE
+          write(outline, req_index);
+          writeline(outfile, outline);
+        END IF;
+        
+        
+      END IF;
+  END IF;
+
+  IF state = s2 THEN
+    
+    reqcount <= reqcount + 1;   
 	end if;
 
   END PROCESS;

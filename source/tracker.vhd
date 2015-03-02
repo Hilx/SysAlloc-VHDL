@@ -33,7 +33,7 @@ ARCHITECTURE synthe_tracker OF tracker IS
   SIGNAL top_node_size     : usgn(31 DOWNTO 0);
   SIGNAL log2top_node_size : usgn(6 DOWNTO 0);
   SIGNAL verti             : usgn(31 DOWNTO 0);
-  SIGNAL horiz             : usgn(31 DOWNTO 0);
+
   SIGNAL rowbase           : usgn(31 DOWNTO 0);
   SIGNAL depth             : integer RANGE 0 TO 31;
   signal func_sel_i : std_logic;
@@ -67,6 +67,7 @@ BEGIN
   p1 : PROCESS
     VARIABLE rowbase_var       : usgn(31 DOWNTO 0);
     VARIABLE local_depth_var : usgn(6 DOWNTO 0);
+	variable    horiz_var             : usgn(31 DOWNTO 0);
 
   BEGIN
     WAIT UNTIL clk'event AND clk = '1';
@@ -82,8 +83,7 @@ BEGIN
         
         top_node_size     <= usgn(TOTAL_MEM_BLOCKS);
         log2top_node_size <= usgn(LOG2TMB);
-        verti             <= (OTHERS => '0');
-        horiz             <= (OTHERS => '0');     
+        verti             <= (OTHERS => '0'); 
         rowbase           <= (OTHERS => '0');
 		
 
@@ -147,10 +147,10 @@ BEGIN
 			probe_out.verti <= slv(verti);
 			rowbase_var := rowbase +  (to_unsigned(1, rowbase'length) SLL (to_integer(3 * (verti - 1))));
 			probe_out.horiz <= slv(usgn(ram_data_out) - rowbase_var                             );
-
+			horiz_var := usgn(ram_data_out) - rowbase_var ;      
 			probe_out.rowbase <= slv(rowbase);
-			probe_out.nodesel <= slv(horiz(2 DOWNTO 0));  -- nodesel = horiz % 8             
-			probe_out.saddr   <= slv(horiz SLL to_integer(log2top_node_size));
+			probe_out.nodesel <= slv(horiz_var(2 DOWNTO 0));  -- nodesel = horiz % 8             
+			probe_out.saddr   <= slv(horiz_var SLL to_integer(log2top_node_size));
 
 			probe_out.alvec <= '0';
 			IF to_integer(top_node_size) = 2 THEN

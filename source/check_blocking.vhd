@@ -94,7 +94,7 @@ BEGIN
         
         gen.alvec <= cur.alvec;
         -- selected node's AND bit = 1 ==> found blocking
-        IF ram_data_out(15 + to_integer(usgn(cur.nodesel))) = '1' THEN
+        IF ram_data_out(15 + to_integer(resize(usgn(cur.nodesel),32) sll 1)) = '1' THEN
           flag_blocking <= '1';
 
           gen.verti   <= cur.verti;

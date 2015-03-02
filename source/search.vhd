@@ -138,10 +138,10 @@ BEGIN
 
 
           flag_found_var := '0';
-          IF(mtree_var(14) AND mtree_var(16)
-             AND mtree_var(18) AND mtree_var(20)
-             AND mtree_var(22) AND mtree_var(24)
-             AND mtree_var(26) AND mtree_var(28)) = '0' THEN
+          IF(mtree_var(15) AND mtree_var(17)
+             AND mtree_var(19) AND mtree_var(21)
+             AND mtree_var(23) AND mtree_var(25)
+             AND mtree_var(27) AND mtree_var(29)) = '0' THEN
             flag_found_var := '1';
           END IF;
           flag_found <= flag_found_var;
