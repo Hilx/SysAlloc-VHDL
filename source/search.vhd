@@ -189,7 +189,7 @@ BEGIN
               gen.horiz     <= slv(usgn(cur.horiz) SRL 3);
               gen_direction <= '1';     -- go up
               nodesel_var   := slv(resize(usgn(cur.horiz(2 DOWNTO 0)), gen.nodesel'length));
-              gen.saddr     <= slv(usgn(cur.saddr) - (resize(usgn(cur.nodesel), 32) SLL to_integer(usgn(log2top_node_size))));
+              gen.saddr     <= slv(usgn(cur.saddr) - (resize(usgn(nodesel_var), 32) SLL to_integer(usgn(log2top_node_size)))); -- which nodesel to use?
             END IF;
 
           END IF;
