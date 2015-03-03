@@ -91,7 +91,7 @@ BEGIN
       req_index <= reqcount; -- data(reqcount).req_index;
       start     <= '1';
       command   <= '0'; -- data(reqcount).command;
-      size      <= slv(to_unsigned(1, size'length));
+      size      <= slv(to_unsigned(reqcount, size'length));
       address   <= slv(to_unsigned(15, address'length));
     END IF;
 

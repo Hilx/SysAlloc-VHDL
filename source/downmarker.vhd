@@ -263,7 +263,7 @@ BEGIN
       IF state = s_w0 THEN
 
         -- write data
-        IF gen.alvec = '0' THEN
+        IF cur.alvec = '0' THEN -- used to check gen.alvec
           ram_data_in <= utree;
         ELSE
           ram_data_in <= mtree;
