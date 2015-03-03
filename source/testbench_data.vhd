@@ -24,13 +24,13 @@ PACKAGE tb_data IS
 	constant free : std_logic := '1';
 
     CONSTANT data: data_t :=(
-		(1, malloc, 400, 0 ),
-		(2, malloc, 32, 0),
-		(3, free, 400, 0),
-		(4, malloc, 188, 0),
-		(5, malloc, 1, 0),
-		(6, malloc, 1, 128),
-		(7, free, 1, 189),
-		(8, malloc, 2, 0)
+		(1, malloc, 67, 0 ),
+		(2, malloc, 67, 0),
+		(3, malloc, 67, 0),
+		(4, malloc, 67, 0),
+		(5, free, 67, 0),
+		(6, free, 67, 128),
+		(7, malloc, 256, 0),
+		(8, malloc, 67, 0)
 	);
 END PACKAGE tb_data;

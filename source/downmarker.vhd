@@ -49,6 +49,7 @@ ARCHITECTURE synth_dmark OF down_marker IS
   SIGNAL index          : std_logic_vector(5 DOWNTO 0);
   SIGNAL effective_node : std_logic_vector(1 DOWNTO 0);
 
+  
 BEGIN
 
   p0 : PROCESS(state, start, size_left, flag_alloc)
@@ -172,7 +173,7 @@ BEGIN
       IF state = s_mark THEN
 
         IF cur.alvec = '1' THEN
-          IF to_integer(usgn(reqsize)) = 1 AND probe_in.saddr(1) = '1' THEN
+          IF to_integer(usgn(reqsize)) = 1 AND probe_in.saddr(0) = '1' THEN
             mtree(alvec_sel + 1) <= flag_alloc;
           ELSE
             mtree(alvec_sel) <= flag_alloc;
@@ -229,6 +230,11 @@ BEGIN
           IF flag_alloc = '0' THEN
             state <= s_w0;
           END IF;
+
+          gen.alvec   <= '0';
+          IF USE_ALVEC = '1' THEN -- used to be 16
+            gen.alvec <= '1';
+          END IF;  
           
         ELSE
           
@@ -237,7 +243,7 @@ BEGIN
           gen.verti   <= slv(usgn(cur.verti) + 1);
           gen.horiz   <= slv((usgn(cur.horiz) SLL 3) + usgn(offset));
           gen.alvec   <= '0';
-          IF to_integer(usgn(top_node_size)) = 16 THEN
+          IF to_integer(usgn(size_left_var)) = 1 and USE_ALVEC = '1' THEN -- used to be 16
             gen.alvec <= '1';
           END IF;
 
