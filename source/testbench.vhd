@@ -24,7 +24,7 @@ ARCHITECTURE behav OF tb IS
   SIGNAL saddr                                : std_logic_vector(31 DOWNTO 0);
 
   SIGNAL CtrCounter : integer   := 0;
-  SIGNAL reqcount   : integer   := 1;
+  SIGNAL reqcount   : integer   := 0;
   SIGNAL req_index  : integer;
   SIGNAL endoffile  : std_logic := '0';
 
@@ -64,7 +64,7 @@ BEGIN
 
                  END IF;
 				 when s_w => nstate <= s2;
-				   IF reqcount = 500 THEN
+				   IF reqcount = 7 THEN
                      nstate <= done;
                    END IF;
       WHEN s2     => nstate <= s0;
@@ -88,24 +88,24 @@ BEGIN
     state <= nstate;
 
     IF state = s0 THEN
-      req_index <= reqcount; -- data(reqcount).req_index;
+      req_index <= data(reqcount).req_index;
       start     <= '1';
-      command   <= '0'; -- data(reqcount).command;
-      size      <= slv(to_unsigned(reqcount, size'length));
-      address   <= slv(to_unsigned(15, address'length));
+      command   <= data(reqcount).command;
+      size      <= slv(to_unsigned(data(reqcount).size, size'length));
+      address   <= slv(to_unsigned(data(reqcount).address, address'length));
     END IF;
 
     IF state = s_w THEN
       IF(endoffile = '0') THEN
         
         IF command = '0' THEN           -- allotcation
-          write(outline, reqcount);
+          write(outline, req_index);
           write(outline, string'(" saddr =  "));
           out_int := to_integer(usgn(saddr));
           write(outline, out_int);
           writeline(outfile, outline);
         ELSE
-          write(outline, reqcount);
+          write(outline, req_index);
           writeline(outfile, outline);
         END IF;
         

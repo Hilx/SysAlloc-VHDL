@@ -130,7 +130,7 @@ BEGIN
       done_bit     => search_done_bit,
       ram_addr     => search0_addr,
       ram_data_out => search0_data_out,
-      flag_failed  => flag_malloc_failed,
+      flag_failed_out  => flag_malloc_failed,
 	  vg_addr => vg_addr_malloc
       );
 

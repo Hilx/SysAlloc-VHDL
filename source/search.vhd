@@ -16,7 +16,7 @@ ENTITY locator IS
     done_bit     : OUT std_logic;
     ram_addr     : OUT std_logic_vector(31 DOWNTO 0);
     ram_data_out : IN  std_logic_vector(31 DOWNTO 0);
-    flag_failed  : OUT std_logic;
+    flag_failed_out  : OUT std_logic;
 	vg_addr 	 : out std_logic_vector(31 downto 0)
     );
 END ENTITY locator;
@@ -36,10 +36,11 @@ ARCHITECTURE synth_locator OF locator IS
   SIGNAL gen                      : tree_probe;
   SIGNAL gen_direction, direction : std_logic;  -- DOWN = 0, UP = 1 
   SIGNAL local_and_tree           : std_logic_vector(14 DOWNTO 0);
+  signal flag_failed : std_logic;
 
 BEGIN
 
-  P0 : PROCESS(state, start, search_status)
+  P0 : PROCESS(state, start, search_status,flag_failed)
   BEGIN
     
     nstate   <= idle;
@@ -58,7 +59,7 @@ BEGIN
       WHEN s3 =>
         
         nstate <= s0;
-        IF search_status = '1' THEN
+        IF search_status = '1' or flag_failed = '1' THEN
           nstate   <= done;
           done_bit <= '1';
         END IF;
@@ -343,7 +344,7 @@ BEGIN
             END IF;
             
           ELSE                          -- not found
-
+	
             IF to_integer(usgn(cur.verti)) = 0 THEN
               flag_failed <= '1';
             ELSE                        -- GO UP
@@ -427,5 +428,6 @@ BEGIN
 
   ram_addr  <= group_addr;
   probe_out <= gen;
+  flag_failed_out <= flag_failed;
   
 END ARCHITECTURE;
