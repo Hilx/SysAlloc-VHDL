@@ -6,7 +6,7 @@ ENTITY tracker_ram IS
   PORT(
     clk      : IN  std_logic;
     we       : IN  std_logic;
-    address  : IN  integer range 0 to 31;
+    address  : IN  integer RANGE 0 TO 31;
     data_in  : IN  std_logic_vector(31 DOWNTO 0);
     data_out : OUT std_logic_vector(31 DOWNTO 0)
     );

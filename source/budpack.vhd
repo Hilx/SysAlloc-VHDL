@@ -10,9 +10,9 @@ PACKAGE budpack IS
   CONSTANT LOG2TMB          : std_logic_vector(6 DOWNTO 0)  := std_logic_vector(to_unsigned(9, 7));  -- MAX TREE DEPTH
   CONSTANT MAX_TREE_DEPTH   : integer                       := 9;
   -- if the allocation vector is used, the starting address of it. DON'T KNOW YET!
-  CONSTANT USE_ALVEC : std_logic := '0';
-  CONSTANT ALVEC_SHIFT : std_logic_vector(31 DOWNTO 0) := std_logic_vector(to_unsigned(10000, 32));
-  
+  CONSTANT USE_ALVEC        : std_logic                     := '0';
+  CONSTANT ALVEC_SHIFT      : std_logic_vector(31 DOWNTO 0) := std_logic_vector(to_unsigned(10000, 32));
+
 
 
   TYPE tree_probe IS RECORD  -- possible type for interface from DB to RCD. Change as required

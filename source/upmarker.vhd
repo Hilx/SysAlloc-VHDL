@@ -84,7 +84,7 @@ BEGIN
         gen.rowbase <= slv(usgn(cur.rowbase) - (to_unsigned(1, gen.rowbase'length) SLL to_integer(3 * (usgn(cur.verti) - 2))));
         group_addr  <= slv(usgn(cur.rowbase) + (usgn(cur.horiz) SRL 3));
         -- index = 14 + (input horiz % 8) * 2
-        index       <= to_integer((resize(usgn(cur.horiz(2 DOWNTO 0)),32) SLL 1));
+        index       <= to_integer((resize(usgn(cur.horiz(2 DOWNTO 0)), 32) SLL 1));
 
       END IF;  -- finish state = s0
 
@@ -107,7 +107,7 @@ BEGIN
         ram_data_in <= utree;
       END IF;
 
-	  ram_we <= '0';
+      ram_we <= '0';
       IF state = s_w1 THEN
         ram_we <= '1';
 

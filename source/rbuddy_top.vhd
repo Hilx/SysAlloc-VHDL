@@ -102,9 +102,9 @@ ARCHITECTURE synth OF rbuddy_top IS
   SIGNAL cblock_ram_data_out  : std_logic_vector(31 DOWNTO 0);
 
   SIGNAL start_tracker : std_logic;
-  
-  signal vg_addr_malloc : std_logic_vector(31 DOWNTO 0);
-  signal vg_addr_free : std_logic_vector(31 downto 0);
+
+  SIGNAL vg_addr_malloc : std_logic_vector(31 DOWNTO 0);
+  SIGNAL vg_addr_free   : std_logic_vector(31 DOWNTO 0);
 
 
   
@@ -120,18 +120,18 @@ BEGIN
       );
   LOCATOR0 : ENTITY locator
     PORT MAP(
-      clk          => clk,
-      reset        => reset,
-      start        => start_search,
-      probe_in     => search_start_probe,
-      size         => size,
-      direction_in => '0',              -- start direction is always DOWN
-      probe_out    => search_done_probe,
-      done_bit     => search_done_bit,
-      ram_addr     => search0_addr,
-      ram_data_out => search0_data_out,
-      flag_failed_out  => flag_malloc_failed,
-	  vg_addr => vg_addr_malloc
+      clk             => clk,
+      reset           => reset,
+      start           => start_search,
+      probe_in        => search_start_probe,
+      size            => size,
+      direction_in    => '0',           -- start direction is always DOWN
+      probe_out       => search_done_probe,
+      done_bit        => search_done_bit,
+      ram_addr        => search0_addr,
+      ram_data_out    => search0_data_out,
+      flag_failed_out => flag_malloc_failed,
+      vg_addr         => vg_addr_malloc
       );
 
   dmark : ENTITY down_marker
@@ -177,7 +177,7 @@ BEGIN
       top_node_size_out     => free_tns,
       log2top_node_size_out => free_log2tns,
       group_addr_out        => free_group_addr,
-	  vg_addr => vg_addr_free
+      vg_addr               => vg_addr_free
       );
 
   tracker_ram0 : ENTITY tracker_ram
@@ -251,8 +251,8 @@ BEGIN
   BEGIN
     WAIT UNTIL clk'event AND clk = '1';
 
-    state                <= nstate;     -- default
-	
+    state <= nstate;                    -- default
+
     -- start signals
     start_free_info      <= '0';
     start_tracker        <= '0';
@@ -263,7 +263,7 @@ BEGIN
 
     IF reset = '0' THEN                 -- active low
       state <= idle;
-    ELSE      
+    ELSE
 
       IF state = idle THEN
         IF start = '1' THEN
@@ -312,9 +312,9 @@ BEGIN
           start_tracker         <= '1';
           tracker_func_sel      <= '0';
           group_addr_to_tracker <= free_group_addr;  -- group addr  
-				if to_integer(usgn(size)) = 1 and USE_ALVEC = '1' then 
-					  group_addr_to_tracker <= vg_addr_free;
-				end if;		  
+          IF to_integer(usgn(size)) = 1 AND USE_ALVEC = '1' THEN
+            group_addr_to_tracker <= vg_addr_free;
+          END IF;
         END IF;
       END IF;  -- end free       
 
@@ -326,9 +326,9 @@ BEGIN
             start_tracker         <= '1';
             tracker_func_sel      <= '0';
             group_addr_to_tracker <= search0_addr;  -- group addr   
-				if to_integer(usgn(size)) = 1 and USE_ALVEC = '1' then 
-					  group_addr_to_tracker <= vg_addr_malloc;
-				end if;
+            IF to_integer(usgn(size)) = 1 AND USE_ALVEC = '1' THEN
+              group_addr_to_tracker <= vg_addr_malloc;
+            END IF;
           ELSE                          -- if search for allocation failed
             state <= done_state;
           END IF;

@@ -14,7 +14,7 @@ ENTITY check_blocking IS
     probe_out         : OUT tree_probe;
     done_bit          : OUT std_logic;
     -- ram related
-    ram_addr          : OUT std_logic_vector(31 downto 0);
+    ram_addr          : OUT std_logic_vector(31 DOWNTO 0);
     ram_data_out      : IN  std_logic_vector(31 DOWNTO 0)
     );
 END ENTITY check_blocking;
@@ -57,8 +57,8 @@ BEGIN
   END PROCESS;
 
   p1 : PROCESS
-    VARIABLE rowbase_var : slv(31 DOWNTO 0);
-	variable log2top_node_size_var : integer range 0 to MAX_TREE_DEPTH;
+    VARIABLE rowbase_var           : slv(31 DOWNTO 0);
+    VARIABLE log2top_node_size_var : integer RANGE 0 TO MAX_TREE_DEPTH;
   BEGIN
     WAIT UNTIL clk'event AND clk = '1';
 
@@ -69,15 +69,15 @@ BEGIN
     ELSE
       
       IF state = prep THEN
-	  
-		log2top_node_size_var := to_integer( resize(usgn(LOG2TMB) - 3* (usgn(probe_in.verti)), log2top_node_size'length));
-		cur.verti <= slv( usgn(probe_in.verti) - 1);
-		cur.horiz <= slv( usgn(probe_in.horiz) srl 3);
-		cur.nodesel <= probe_in.horiz(2 downto 0);
-		cur.saddr <= slv(usgn(probe_in.saddr) - (  usgn(probe_in.nodesel) sll log2top_node_size_var));
-		cur.rowbase <= slv(usgn(probe_in.rowbase) + (to_unsigned(1, rowbase_var'length) SLL (to_integer(3*(usgn(probe_in.verti) - 1)))));
-		cur.alvec <= '0';				
-		
+        
+        log2top_node_size_var := to_integer(resize(usgn(LOG2TMB) - 3* (usgn(probe_in.verti)), log2top_node_size'length));
+        cur.verti             <= slv(usgn(probe_in.verti) - 1);
+        cur.horiz             <= slv(usgn(probe_in.horiz) SRL 3);
+        cur.nodesel           <= probe_in.horiz(2 DOWNTO 0);
+        cur.saddr             <= slv(usgn(probe_in.saddr) - (usgn(probe_in.nodesel) SLL log2top_node_size_var));
+        cur.rowbase           <= slv(usgn(probe_in.rowbase) + (to_unsigned(1, rowbase_var'length) SLL (to_integer(3*(usgn(probe_in.verti) - 1)))));
+        cur.alvec             <= '0';
+
         flag_blocking <= '0';
       END IF;  -- end prep
 
@@ -94,7 +94,7 @@ BEGIN
         
         gen.alvec <= cur.alvec;
         -- selected node's AND bit = 1 ==> found blocking
-        IF ram_data_out(15 + to_integer(resize(usgn(cur.nodesel),32) sll 1)) = '1' THEN
+        IF ram_data_out(15 + to_integer(resize(usgn(cur.nodesel), 32) SLL 1)) = '1' THEN
           flag_blocking <= '1';
 
           gen.verti   <= cur.verti;

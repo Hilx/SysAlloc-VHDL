@@ -16,7 +16,7 @@ ENTITY free_info IS
     top_node_size_out     : OUT std_logic_vector(31 DOWNTO 0);
     log2top_node_size_out : OUT std_logic_vector(6 DOWNTO 0);
     group_addr_out        : OUT std_logic_vector(31 DOWNTO 0);
-	vg_addr 	          : out std_logic_vector(31 downto 0)
+    vg_addr               : OUT std_logic_vector(31 DOWNTO 0)
     );
 END ENTITY free_info;
 
@@ -64,7 +64,7 @@ BEGIN
 
   p1 : PROCESS
     VARIABLE rowbase_var, horiz_var : usgn(31 DOWNTO 0);
-	variable alvec_var : std_logic;
+    VARIABLE alvec_var              : std_logic;
 
   BEGIN
     WAIT UNTIL clk'event AND clk = '1';
@@ -84,12 +84,12 @@ BEGIN
         nodesel           <= (OTHERS => '0');
         rowbase           <= (OTHERS => '0');
         alvec             <= '0';
-		alvec_var := '0';
+        alvec_var         := '0';
 
       END IF;
 
       IF state = s0 THEN
-	  
+        
         state                     <= s1;
         IF to_integer(usgn(size)) <= to_integer(top_node_size SRL 4) THEN
           state             <= nstate;
@@ -103,28 +103,28 @@ BEGIN
       END IF;  -- end state = s0
 
       IF state = s1 THEN
-        horiz <= usgn(address) SRL to_integer(log2top_node_size);
-		horiz_var := usgn(address) SRL to_integer(log2top_node_size);
+        horiz     <= usgn(address) SRL to_integer(log2top_node_size);
+        horiz_var := usgn(address) SRL to_integer(log2top_node_size);
 
         nodesel <= resize(usgn(address(to_integer(log2top_node_size - 1) DOWNTO 0)) SRL to_integer(log2top_node_size - 3), nodesel'length);
         IF to_integer(top_node_size) = 2 THEN
-          nodesel <= resize(usgn(address(1 DOWNTO 1)), nodesel'length);
-          alvec   <= '1';
-		  alvec_var := '1';
+          nodesel   <= resize(usgn(address(1 DOWNTO 1)), nodesel'length);
+          alvec     <= '1';
+          alvec_var := '1';
         ELSIF to_integer(top_node_size) = 4 THEN
           nodesel <= resize(usgn(address(1 DOWNTO 0)) SLL 1, nodesel'length);
-        END IF;		
+        END IF;
 
         rowbase_var := rowbase + (to_unsigned(1, rowbase'length) SLL (to_integer(3 * (verti - 1))));
-		
-		if alvec_var = '0' then 
-			group_addr  <= rowbase_var + horiz;
-		else 
-			group_addr <= resize(horiz(3 DOWNTO 0),32); -- group addr = horiz % 16
-		end if;
-		
-		vg_addr <= slv(rowbase_var + horiz);		
-		
+
+        IF alvec_var = '0' THEN
+          group_addr <= rowbase_var + horiz;
+        ELSE
+          group_addr <= resize(horiz(3 DOWNTO 0), 32);  -- group addr = horiz % 16
+        END IF;
+
+        vg_addr <= slv(rowbase_var + horiz);
+        
       END IF;  -- end state = s1
 
       IF state = capture THEN

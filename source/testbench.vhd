@@ -15,7 +15,7 @@ ARCHITECTURE behav OF tb IS
   ALIAS slv IS std_logic_vector;
   ALIAS usgn IS unsigned;
 
-  TYPE statetype IS (idle, s0, s1, s2, done,s_w);
+  TYPE statetype IS (idle, s0, s1, s2, done, s_w);
   SIGNAL state, nstate : statetype;
 
   SIGNAL clk, reset, start, command, done_bit : std_logic;
@@ -24,7 +24,7 @@ ARCHITECTURE behav OF tb IS
   SIGNAL saddr                                : std_logic_vector(31 DOWNTO 0);
 
   SIGNAL CtrCounter : integer   := 0;
-  SIGNAL reqcount   : integer   := 0;
+  SIGNAL reqcount   : integer   := 1;
   SIGNAL req_index  : integer;
   SIGNAL endoffile  : std_logic := '0';
 
@@ -59,14 +59,14 @@ BEGIN
       WHEN idle => nstate <= s0;
       WHEN s0   => nstate <= s1;        -- send req
       WHEN s1   => nstate <= s1;
-                 IF done_bit = '1' THEN
-                   nstate <= s_w;
+                   IF done_bit = '1' THEN
+                     nstate <= s_w;
 
-                 END IF;
-				 when s_w => nstate <= s2;
-				   IF reqcount = 7 THEN
-                     nstate <= done;
                    END IF;
+      WHEN s_w => nstate <= s2;
+                  IF reqcount = 500 THEN
+                    nstate <= done;
+                  END IF;
       WHEN s2     => nstate <= s0;
       WHEN done   => nstate <= done;
       WHEN OTHERS => NULL;
@@ -88,11 +88,11 @@ BEGIN
     state <= nstate;
 
     IF state = s0 THEN
-      req_index <= data(reqcount).req_index;
+      req_index <= reqcount;
       start     <= '1';
-      command   <= data(reqcount).command;
-      size      <= slv(to_unsigned(data(reqcount).size, size'length));
-      address   <= slv(to_unsigned(data(reqcount).address, address'length));
+      command   <= '0';
+      size      <= slv(to_unsigned(reqcount, size'length));
+      address   <= slv(to_unsigned(0, address'length));
     END IF;
 
     IF state = s_w THEN
@@ -111,12 +111,12 @@ BEGIN
         
         
       END IF;
-  END IF;
+    END IF;
 
-  IF state = s2 THEN
-    
-    reqcount <= reqcount + 1;   
-	end if;
+    IF state = s2 THEN
+      
+      reqcount <= reqcount + 1;
+    END IF;
 
   END PROCESS;
 

@@ -6,19 +6,19 @@ USE work.budpack.ALL;
 
 ENTITY down_marker IS
   PORT(
-    clk                  : IN  std_logic;
-    reset                : IN  std_logic;
-    start                : IN  std_logic;
-    flag_alloc           : IN  std_logic;  -- 1 = alloc, 0 = free
-    probe_in             : IN  tree_probe;
-    reqsize              : IN  std_logic_vector(31 DOWNTO 0);
-    done_bit             : OUT std_logic;
-    node_out             : OUT std_logic_vector(1 DOWNTO 0);
-    flag_markup          : OUT std_logic;
-    ram_we               : OUT std_logic;
-    ram_addr             : OUT std_logic_vector(31 DOWNTO 0);
-    ram_data_in          : OUT std_logic_vector(31 DOWNTO 0);
-    ram_data_out         : IN  std_logic_vector(31 DOWNTO 0)
+    clk          : IN  std_logic;
+    reset        : IN  std_logic;
+    start        : IN  std_logic;
+    flag_alloc   : IN  std_logic;       -- 1 = alloc, 0 = free
+    probe_in     : IN  tree_probe;
+    reqsize      : IN  std_logic_vector(31 DOWNTO 0);
+    done_bit     : OUT std_logic;
+    node_out     : OUT std_logic_vector(1 DOWNTO 0);
+    flag_markup  : OUT std_logic;
+    ram_we       : OUT std_logic;
+    ram_addr     : OUT std_logic_vector(31 DOWNTO 0);
+    ram_data_in  : OUT std_logic_vector(31 DOWNTO 0);
+    ram_data_out : IN  std_logic_vector(31 DOWNTO 0)
     );
 END ENTITY down_marker;
 
@@ -120,10 +120,10 @@ BEGIN
       state <= nstate;
 
       IF state = prep THEN
-        cur                   <= probe_in;
-        size_left             <= reqsize;
-        flag_first            <= '1';
-        flag_markup           <= '0';
+        cur         <= probe_in;
+        size_left   <= reqsize;
+        flag_first  <= '1';
+        flag_markup <= '0';
       END IF;
 
       IF state = s0 THEN
@@ -184,8 +184,8 @@ BEGIN
           
         ELSIF size_left < slv(usgn(top_node_size) SRL 3) THEN  -- reqsize < topsize/8
           
-          mtree(14 + to_integer(usgn(shift)))     <= flag_alloc;
-          size_left_var := size_left;
+          mtree(14 + to_integer(usgn(shift))) <= flag_alloc;
+          size_left_var                       := size_left;
           
         ELSIF to_integer(usgn(top_node_size)) = 4 THEN  -- topsize = 4
 
@@ -231,10 +231,10 @@ BEGIN
             state <= s_w0;
           END IF;
 
-          gen.alvec   <= '0';
-          IF USE_ALVEC = '1' THEN -- used to be 16
+          gen.alvec <= '0';
+          IF USE_ALVEC = '1' THEN       -- used to be 16
             gen.alvec <= '1';
-          END IF;  
+          END IF;
           
         ELSE
           
@@ -243,7 +243,7 @@ BEGIN
           gen.verti   <= slv(usgn(cur.verti) + 1);
           gen.horiz   <= slv((usgn(cur.horiz) SLL 3) + usgn(offset));
           gen.alvec   <= '0';
-          IF to_integer(usgn(size_left_var)) = 1 and USE_ALVEC = '1' THEN -- used to be 16
+          IF to_integer(usgn(size_left_var)) = 1 AND USE_ALVEC = '1' THEN  -- used to be 16
             gen.alvec <= '1';
           END IF;
 
@@ -263,7 +263,7 @@ BEGIN
       IF state = s_w0 THEN
 
         -- write data
-        IF cur.alvec = '0' THEN -- used to check gen.alvec
+        IF cur.alvec = '0' THEN         -- used to check gen.alvec
           ram_data_in <= utree;
         ELSE
           ram_data_in <= mtree;

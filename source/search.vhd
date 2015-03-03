@@ -6,18 +6,18 @@ USE work.budpack.ALL;
 
 ENTITY locator IS
   PORT(
-    clk          : IN  std_logic;
-    reset        : IN  std_logic;
-    start        : IN  std_logic;
-    probe_in     : IN  tree_probe;
-    size         : IN  std_logic_vector(31 DOWNTO 0);
-    direction_in : IN  std_logic;       -- DOWN = 0, UP = 1
-    probe_out    : OUT tree_probe;
-    done_bit     : OUT std_logic;
-    ram_addr     : OUT std_logic_vector(31 DOWNTO 0);
-    ram_data_out : IN  std_logic_vector(31 DOWNTO 0);
-    flag_failed_out  : OUT std_logic;
-	vg_addr 	 : out std_logic_vector(31 downto 0)
+    clk             : IN  std_logic;
+    reset           : IN  std_logic;
+    start           : IN  std_logic;
+    probe_in        : IN  tree_probe;
+    size            : IN  std_logic_vector(31 DOWNTO 0);
+    direction_in    : IN  std_logic;    -- DOWN = 0, UP = 1
+    probe_out       : OUT tree_probe;
+    done_bit        : OUT std_logic;
+    ram_addr        : OUT std_logic_vector(31 DOWNTO 0);
+    ram_data_out    : IN  std_logic_vector(31 DOWNTO 0);
+    flag_failed_out : OUT std_logic;
+    vg_addr         : OUT std_logic_vector(31 DOWNTO 0)
     );
 END ENTITY locator;
 
@@ -36,11 +36,11 @@ ARCHITECTURE synth_locator OF locator IS
   SIGNAL gen                      : tree_probe;
   SIGNAL gen_direction, direction : std_logic;  -- DOWN = 0, UP = 1 
   SIGNAL local_and_tree           : std_logic_vector(14 DOWNTO 0);
-  signal flag_failed : std_logic;
+  SIGNAL flag_failed              : std_logic;
 
 BEGIN
 
-  P0 : PROCESS(state, start, search_status,flag_failed)
+  P0 : PROCESS(state, start, search_status, flag_failed)
   BEGIN
     
     nstate   <= idle;
@@ -59,7 +59,7 @@ BEGIN
       WHEN s3 =>
         
         nstate <= s0;
-        IF search_status = '1' or flag_failed = '1' THEN
+        IF search_status = '1' OR flag_failed = '1' THEN
           nstate   <= done;
           done_bit <= '1';
         END IF;
@@ -119,7 +119,7 @@ BEGIN
           group_addr <= slv(usgn(rowbase_var) + usgn(cur.horiz));  -- rowbase_var before!      
         ELSE                            -- in allocation vector
           group_addr <= slv(usgn(ALVEC_SHIFT) +(usgn(cur.horiz) SRL 4));
-		  vg_addr <= slv(usgn(rowbase_var) + usgn(cur.horiz)); 
+          vg_addr    <= slv(usgn(rowbase_var) + usgn(cur.horiz));
         END IF;
 
 
@@ -192,7 +192,7 @@ BEGIN
               gen.horiz     <= slv(usgn(cur.horiz) SRL 3);
               gen_direction <= '1';     -- go up
               nodesel_var   := slv(resize(usgn(cur.horiz(2 DOWNTO 0)), gen.nodesel'length));
-              gen.saddr     <= slv(usgn(cur.saddr) - (resize(usgn(nodesel_var), 32) SLL to_integer(usgn(log2top_node_size)))); -- which nodesel to use?
+              gen.saddr     <= slv(usgn(cur.saddr) - (resize(usgn(nodesel_var), 32) SLL to_integer(usgn(log2top_node_size))));  -- which nodesel to use?
             END IF;
 
           END IF;
@@ -238,12 +238,12 @@ BEGIN
               IF flag_found_var = '1' THEN
 
                 ------------------------ find starting address
-                nodesel_var(2) := mtree(14) and mtree(16) and mtree(18) and mtree(20);
+                nodesel_var(2) := mtree(14) AND mtree(16) AND mtree(18) AND mtree(20);
                 ns_var         := nodesel_var(2);
                 IF ns_var = '0' THEN
-                  nodesel_var(1) := mtree(14) and mtree(16);
+                  nodesel_var(1) := mtree(14) AND mtree(16);
                 ELSE
-                  nodesel_var(1) := mtree(22) and mtree(24);
+                  nodesel_var(1) := mtree(22) AND mtree(24);
                 END IF;
                 ns_var2 := nodesel_var(2 DOWNTO 1);
                 CASE ns_var2 IS
@@ -262,7 +262,7 @@ BEGIN
               
               
             ELSIF size <= slv(usgn(top_node_size) SRL 2) THEN  -- topsize /4     
-			 -- find the first OR bit in local depth = 2
+              -- find the first OR bit in local depth = 2
 
               flag_found     <= '0';
               flag_found_var := '0';
@@ -275,7 +275,7 @@ BEGIN
               IF flag_found_var = '1' THEN
 
                 ------------------------ find starting address
-                nodesel_var(2) := mtree(6) and mtree(8);
+                nodesel_var(2) := mtree(6) AND mtree(8);
                 ns_var         := nodesel_var(2);
                 IF ns_var = '0' THEN
                   nodesel_var(1) := mtree(6);
@@ -288,7 +288,7 @@ BEGIN
               END IF;
               
             ELSIF size <= slv(usgn(top_node_size) SRL 1) THEN  -- topsize/2 
-			-- find the first OR bit in local depth = 1
+              -- find the first OR bit in local depth = 1
               
               flag_found     <= '0';
               flag_found_var := '0';
@@ -344,7 +344,7 @@ BEGIN
             END IF;
             
           ELSE                          -- not found
-	
+            
             IF to_integer(usgn(cur.verti)) = 0 THEN
               flag_failed <= '1';
             ELSE                        -- GO UP
@@ -426,8 +426,8 @@ BEGIN
   END PROCESS;
 
 
-  ram_addr  <= group_addr;
-  probe_out <= gen;
+  ram_addr        <= group_addr;
+  probe_out       <= gen;
   flag_failed_out <= flag_failed;
   
 END ARCHITECTURE;
