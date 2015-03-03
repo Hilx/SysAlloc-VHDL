@@ -102,6 +102,9 @@ ARCHITECTURE synth OF rbuddy_top IS
   SIGNAL cblock_ram_data_out  : std_logic_vector(31 DOWNTO 0);
 
   SIGNAL start_tracker : std_logic;
+  
+  signal vg_addr_malloc : std_logic_vector(31 DOWNTO 0);
+  signal vg_addr_free : std_logic_vector(31 downto 0);
 
 
   
@@ -127,7 +130,8 @@ BEGIN
       done_bit     => search_done_bit,
       ram_addr     => search0_addr,
       ram_data_out => search0_data_out,
-      flag_failed  => flag_malloc_failed
+      flag_failed  => flag_malloc_failed,
+	  vg_addr => vg_addr_malloc
       );
 
   dmark : ENTITY down_marker
@@ -172,7 +176,8 @@ BEGIN
       done_bit              => free_info_done_bit,
       top_node_size_out     => free_tns,
       log2top_node_size_out => free_log2tns,
-      group_addr_out        => free_group_addr
+      group_addr_out        => free_group_addr,
+	  vg_addr => vg_addr_free
       );
 
   tracker_ram0 : ENTITY tracker_ram
@@ -306,7 +311,10 @@ BEGIN
           state                 <= track;
           start_tracker         <= '1';
           tracker_func_sel      <= '0';
-          group_addr_to_tracker <= free_group_addr;  -- group addr      
+          group_addr_to_tracker <= free_group_addr;  -- group addr  
+				if to_integer(usgn(size)) = 1 and USE_ALVEC = '1' then 
+					  group_addr_to_tracker <= vg_addr_free;
+				end if;		  
         END IF;
       END IF;  -- end free       
 
@@ -317,7 +325,10 @@ BEGIN
             state                 <= track;
             start_tracker         <= '1';
             tracker_func_sel      <= '0';
-            group_addr_to_tracker <= search0_addr;  -- group addr                                
+            group_addr_to_tracker <= search0_addr;  -- group addr   
+				if to_integer(usgn(size)) = 1 and USE_ALVEC = '1' then 
+					  group_addr_to_tracker <= vg_addr_malloc;
+				end if;
           ELSE                          -- if search for allocation failed
             state <= done_state;
           END IF;

@@ -16,7 +16,8 @@ ENTITY locator IS
     done_bit     : OUT std_logic;
     ram_addr     : OUT std_logic_vector(31 DOWNTO 0);
     ram_data_out : IN  std_logic_vector(31 DOWNTO 0);
-    flag_failed  : OUT std_logic
+    flag_failed  : OUT std_logic;
+	vg_addr 	 : out std_logic_vector(31 downto 0)
     );
 END ENTITY locator;
 
@@ -117,6 +118,7 @@ BEGIN
           group_addr <= slv(usgn(rowbase_var) + usgn(cur.horiz));  -- rowbase_var before!      
         ELSE                            -- in allocation vector
           group_addr <= slv(usgn(ALVEC_SHIFT) +(usgn(cur.horiz) SRL 4));
+		  vg_addr <= slv(usgn(rowbase_var) + usgn(cur.horiz)); 
         END IF;
 
 
@@ -204,10 +206,10 @@ BEGIN
             flag_found     <= '1';
             flag_found_var := '1';
 
-            IF mtree(to_integer(resize(usgn(cur.horiz(4 DOWNTO 0)), 6) SLL 1)) = '0' THEN
+            IF mtree(to_integer(resize(usgn(cur.horiz(3 DOWNTO 0)), 6) SLL 1)) = '0' THEN
               nodesel_var := "000";
               gen.rowbase <= cur.rowbase;  -- keep that input rowbase if search done
-            ELSIF mtree(to_integer((resize(usgn(cur.horiz(4 DOWNTO 0)), 6) SLL 1)+ 1)) = '0' THEN
+            ELSIF mtree(to_integer((resize(usgn(cur.horiz(3 DOWNTO 0)), 6) SLL 1)+ 1)) = '0' THEN
               nodesel_var := "001";
               gen.rowbase <= cur.rowbase;  -- keep that input rowbase if search done
 

@@ -84,10 +84,8 @@ BEGIN
         top_node_size     <= usgn(TOTAL_MEM_BLOCKS);
         log2top_node_size <= usgn(LOG2TMB);
         verti             <= (OTHERS => '0'); 
-        rowbase           <= (OTHERS => '0');
-		
+        rowbase           <= (OTHERS => '0');	
 
-        
       END IF;
 
       IF state = s0 THEN
@@ -146,7 +144,7 @@ BEGIN
 		if to_integer(usgn(ram_data_out)) > 0 then 
 			probe_out.verti <= slv(verti);
 			rowbase_var := rowbase +  (to_unsigned(1, rowbase'length) SLL (to_integer(3 * (verti - 1))));
-			probe_out.horiz <= slv(usgn(ram_data_out) - rowbase_var                             );
+			probe_out.horiz <= slv(usgn(ram_data_out) - rowbase_var);
 			horiz_var := usgn(ram_data_out) - rowbase_var ;      
 			probe_out.rowbase <= slv(rowbase);
 			probe_out.nodesel <= slv(horiz_var(2 DOWNTO 0));  -- nodesel = horiz % 8             
