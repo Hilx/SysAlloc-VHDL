@@ -85,13 +85,16 @@ BEGIN
         log2top_node_size <= usgn(LOG2TMB);
         verti             <= (OTHERS => '0');
         rowbase           <= (OTHERS => '0');
+		
+        func_sel_i   <= func_sel;
+        group_addr_i <= group_addr_in;
 
       END IF;
 
       IF state = s0 THEN
         
-        func_sel_i   <= func_sel;
-        group_addr_i <= group_addr_in;
+--        func_sel_i   <= func_sel;
+--        group_addr_i <= group_addr_in;
 
 
         IF to_integer(usgn(size)) <= to_integer(top_node_size SRL 4) THEN  -- size <= topsize/16
