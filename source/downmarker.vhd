@@ -186,7 +186,7 @@ BEGIN
           
           mtree(14 + to_integer(usgn(shift))) <= flag_alloc;
           size_left_var                       := size_left;
-          
+          offset := slv(resize(usgn(shift),offset'length) srl 1);--------------------------------------------------
         ELSIF to_integer(usgn(top_node_size)) = 4 THEN  -- topsize = 4
 
           step := slv(resize(usgn(size_left), step'length));  -- step = size_left
@@ -222,6 +222,7 @@ BEGIN
           END IF;
           -- offset = shift/2 + step
           offset := slv(resize((usgn(shift) SRL 1) + usgn(step), offset'length));
+		  
           
         END IF;  -- finished discussing 4 cases
 
@@ -237,7 +238,7 @@ BEGIN
           END IF;
           
         ELSE
-          
+
           gen.saddr   <= cur.saddr;
           gen.nodesel <= offset;
           gen.verti   <= slv(usgn(cur.verti) + 1);
