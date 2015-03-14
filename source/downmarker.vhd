@@ -49,7 +49,7 @@ ARCHITECTURE synth_dmark OF down_marker IS
   SIGNAL index          : std_logic_vector(5 DOWNTO 0);
   SIGNAL effective_node : std_logic_vector(1 DOWNTO 0);
 
-  
+
 BEGIN
 
   p0 : PROCESS(state, start, size_left, flag_alloc)
@@ -186,7 +186,7 @@ BEGIN
           
           mtree(14 + to_integer(usgn(shift))) <= flag_alloc;
           size_left_var                       := size_left;
-          offset := slv(resize(usgn(shift),offset'length) srl 1);--------------------------------------------------
+          offset := slv(resize(usgn(shift) srl 1,offset'length));--------------------------------------------------
         ELSIF to_integer(usgn(top_node_size)) = 4 THEN  -- topsize = 4
 
           step := slv(resize(usgn(size_left), step'length));  -- step = size_left
