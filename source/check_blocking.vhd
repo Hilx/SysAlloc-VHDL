@@ -23,9 +23,9 @@ ARCHITECTURE synthe_cblock OF check_blocking IS
 
   ALIAS slv IS std_logic_vector;
   ALIAS usgn IS unsigned;
-  TYPE StateType IS (idle, prep, s0, s1, s2, done);
+  TYPE StateType IS (idle, prep, s0, s_save, s1, s2, done);
   SIGNAL state, nstate     : StateType;
-  SIGNAL cur, gen          : tree_probe;
+  SIGNAL cur, gen, save          : tree_probe;
   SIGNAL group_addr        : usgn(31 DOWNTO 0);
   SIGNAL log2top_node_size : usgn(6 DOWNTO 0);
   SIGNAL flag_blocking     : std_logic;
@@ -45,7 +45,8 @@ BEGIN
           nstate <= prep;
         END IF;
       WHEN prep => nstate <= s0;
-      WHEN s0   => nstate <= s1;
+      WHEN s0   => nstate <= s_save;
+	 when s_save => nstate <= s1;
       WHEN s1   => nstate <= s2;
       WHEN s2   => nstate <= s0;
       WHEN done =>
@@ -59,6 +60,7 @@ BEGIN
   p1 : PROCESS
     VARIABLE rowbase_var           : slv(31 DOWNTO 0);
     VARIABLE log2top_node_size_var : integer RANGE 0 TO MAX_TREE_DEPTH;
+	
   BEGIN
     WAIT UNTIL clk'event AND clk = '1';
 
@@ -79,6 +81,9 @@ BEGIN
         cur.alvec             <= '0';
 
         flag_blocking <= '0';
+		
+		----------------
+		
       END IF;  -- end prep
 
       IF state = s0 THEN
@@ -89,7 +94,7 @@ BEGIN
         group_addr        <= usgn(rowbase_var) + usgn(cur.horiz);
         
       END IF;  -- end s0
-
+	  
       IF state = s1 THEN                -- check bits & compute gen 
         
         gen.alvec <= cur.alvec;
@@ -100,7 +105,8 @@ BEGIN
           gen.verti   <= cur.verti;
           gen.horiz   <= cur.horiz;
           gen.nodesel <= cur.nodesel;
-          gen.saddr   <= cur.saddr;
+          --gen.saddr   <= slv((usgn(cur.horiz)) SLL (to_integer(log2top_node_size) -2));--cur.saddr;
+		  gen.saddr   <= slv((usgn(cur.horiz)) SLL (to_integer(log2top_node_size)));
           gen.rowbase <= slv(usgn(rowbase_var) - (to_unsigned(1, rowbase_var'length) SLL to_integer(3*(usgn(cur.verti)-1))));
           
           
@@ -109,15 +115,17 @@ BEGIN
           gen.verti   <= slv(usgn(cur.verti) - 1);
           gen.horiz   <= slv(usgn(cur.horiz) SRL 3);
           gen.nodesel <= cur.horiz(2 DOWNTO 0);  -- up nodesel = cur horiz % 8
-          gen.saddr   <= slv(usgn(cur.saddr) - (resize(usgn(cur.nodesel), gen.saddr'length) SLL to_integer(log2top_node_size)));
+          gen.saddr   <=  slv(usgn(cur.saddr) - (resize(usgn(cur.nodesel), gen.saddr'length) SLL to_integer(log2top_node_size)));
+	  
+		  
         END IF;
       END IF;  -- end s1
 
-      IF state = s2 THEN
-        
-        IF to_integer(usgn(cur.verti)) = 0 OR flag_blocking = '1' THEN
-          state     <= done;
-          probe_out <= gen;
+      IF state = s2 THEN        
+        --
+		IF to_integer(usgn(cur.verti)) = 0 or flag_blocking = '1' then
+			state     <= done;
+			probe_out <= gen;
         END IF;
 
         cur <= gen;

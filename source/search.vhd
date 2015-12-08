@@ -56,14 +56,15 @@ BEGIN
       WHEN s0   => nstate <= s1;
       WHEN s1   => nstate <= s2;
       WHEN s2   => nstate <= s3;
-      WHEN s3 =>
-        
+      WHEN s3 =>       
+	  --	nstate <= s_check;
+      --when  s_check =>
         nstate <= s0;
         IF search_status = '1' OR flag_failed = '1' THEN
           nstate   <= done;
           done_bit <= '1';
         END IF;
-        
+		
       WHEN done =>
         nstate   <= idle;
         done_bit <= '1';
@@ -128,6 +129,8 @@ BEGIN
       IF state = s1 THEN
         mtree <= ram_data_out;
       END IF;
+	  
+	  
 
       IF state = s2 THEN
 
